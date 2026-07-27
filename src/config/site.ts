@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "Software Developer specializing in Web Applications",
   description:
     "Software developer experienced in building modern web applications, internal business systems, APIs, and cloud-based solutions.",
-  url: "https://portfolio.example.com",
+  url: "https://personal-space-vert.vercel.app",
   email: {
     label: "Email",
     displayValue: "Email address to be added",

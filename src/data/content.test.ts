@@ -28,7 +28,7 @@ describe("portfolio content", () => {
     }
   });
 
-  it("uses an obvious placeholder URL until deployment is configured", () => {
-    expect(siteConfig.url).toBe("https://portfolio.example.com");
+  it("uses the configured production URL for metadata and discovery files", () => {
+    expect(siteConfig.url).toBe("https://personal-space-vert.vercel.app");
   });
 });
