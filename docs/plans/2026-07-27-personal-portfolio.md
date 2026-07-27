@@ -34,6 +34,7 @@ Vitest, Testing Library, ESLint, Prettier, npm, Node.js 22
 ### Task 1: Project foundation and content model
 
 **Files:**
+
 - Create: `package.json`
 - Create: `package-lock.json`
 - Create: `next.config.ts`
@@ -56,25 +57,27 @@ Vitest, Testing Library, ESLint, Prettier, npm, Node.js 22
 - Test: `src/data/content.test.ts`
 
 **Interfaces:**
+
 - Produces: `Project`, `Experience`, `SkillGroup`, `NavigationItem`,
   `SocialLink`, and `Profile` types.
 - Produces: `siteConfig`, `profile`, `projects`, `experience`, `skills`, and
   `navigation` typed values for every later task.
 
 - [ ] Write `src/data/content.test.ts` first. Assert that the project list has
-  at least three records, slugs are unique, placeholder records are labelled,
-  experience records include every required field, and the site URL is an
-  obvious placeholder.
+      at least three records, slugs are unique, placeholder records are labelled,
+      experience records include every required field, and the site URL is an
+      obvious placeholder.
 - [ ] Run `npm test -- src/data/content.test.ts` and confirm failure because the
-  data modules do not exist.
+      data modules do not exist.
 - [ ] Add the generated Next.js configuration, test tooling, shared types, and
-  the smallest placeholder datasets that satisfy the test.
+      the smallest placeholder datasets that satisfy the test.
 - [ ] Run `npm test -- src/data/content.test.ts` and confirm it passes.
 - [ ] Commit with `feat: establish portfolio content model`.
 
 ### Task 2: Shared layout and navigation
 
 **Files:**
+
 - Create: `src/app/globals.css`
 - Create: `src/app/layout.tsx`
 - Create: `src/components/layout/container.tsx`
@@ -89,24 +92,26 @@ Vitest, Testing Library, ESLint, Prettier, npm, Node.js 22
 - Test: `src/components/ui/button-link.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `siteConfig` and `navigation`.
 - Produces: the root document shell, skip link, active navigation state,
   responsive mobile menu, footer, container, headings, notices, and link-button
   variants.
 
 - [ ] Write tests asserting that `Header` marks the supplied pathname with
-  `aria-current`, exposes the mobile menu control, and that `ButtonLink` renders
-  unavailable actions without navigable links.
+      `aria-current`, exposes the mobile menu control, and that `ButtonLink` renders
+      unavailable actions without navigable links.
 - [ ] Run the focused tests and confirm failure because the components do not
-  exist.
+      exist.
 - [ ] Implement the focused components, root layout metadata, global design
-  tokens, keyboard focus styling, and responsive navigation.
+      tokens, keyboard focus styling, and responsive navigation.
 - [ ] Run the focused tests and confirm they pass.
 - [ ] Commit with `feat: add accessible portfolio layout`.
 
 ### Task 3: Project, skill, and experience presentation
 
 **Files:**
+
 - Create: `src/components/content/project-card.tsx`
 - Create: `src/components/content/skill-list.tsx`
 - Create: `src/components/content/experience-item.tsx`
@@ -114,22 +119,24 @@ Vitest, Testing Library, ESLint, Prettier, npm, Node.js 22
 - Test: `src/components/content/experience-item.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `Project`, `SkillGroup`, and `Experience`.
 - Produces: reusable card, skill-list, and timeline-item renderers.
 
 - [ ] Write tests proving unavailable project links are labelled rather than
-  navigable, technology labels render, and placeholder experience records carry
-  a visible placeholder notice.
+      navigable, technology labels render, and placeholder experience records carry
+      a visible placeholder notice.
 - [ ] Run the focused tests and confirm failure because the components do not
-  exist.
+      exist.
 - [ ] Implement the reusable content components with semantic lists, headings,
-  and accessible external-link labels.
+      and accessible external-link labels.
 - [ ] Run the focused tests and confirm they pass.
 - [ ] Commit with `feat: add reusable portfolio content cards`.
 
 ### Task 4: Portfolio routes and metadata
 
 **Files:**
+
 - Create: `src/app/page.tsx`
 - Create: `src/app/about/page.tsx`
 - Create: `src/app/projects/page.tsx`
@@ -142,40 +149,43 @@ Vitest, Testing Library, ESLint, Prettier, npm, Node.js 22
 - Test: `src/app/routes.test.tsx`
 
 **Interfaces:**
+
 - Consumes: all shared layout, UI, content components, configuration, and data.
 - Produces: six static routes with page-specific metadata plus robots and
   sitemap outputs.
 
 - [ ] Write route tests asserting the home page includes Projects and CV calls
-  to action, Projects renders at least three cards, CV discloses the absent PDF,
-  and Contact exposes labelled placeholder channels without a form.
+      to action, Projects renders at least three cards, CV discloses the absent PDF,
+      and Contact exposes labelled placeholder channels without a form.
 - [ ] Run the route tests and confirm failure because the pages do not exist.
 - [ ] Implement the six pages, page metadata, robots, sitemap, and not-found
-  route using the approved bright professional design.
+      route using the approved bright professional design.
 - [ ] Run the route tests and confirm they pass.
 - [ ] Commit with `feat: build initial portfolio pages`.
 
 ### Task 5: Codespaces, documentation, and release verification
 
 **Files:**
+
 - Create: `.devcontainer/devcontainer.json`
 - Create: `README.md`
 - Modify: `package.json`
 
 **Interfaces:**
+
 - Consumes: final project structure and scripts.
 - Produces: Codespaces setup, maintenance documentation, and Vercel deployment
   instructions.
 
 - [ ] Add the Node.js 22 dev container, `npm install` post-create command, port
-  3000 forwarding, and TypeScript, Tailwind, ESLint, and Prettier extensions.
+      3000 forwarding, and TypeScript, Tailwind, ESLint, and Prettier extensions.
 - [ ] Write the README sections required by the specification, including exact
-  content-editing paths and separate Vercel setup steps.
+      content-editing paths and separate Vercel setup steps.
 - [ ] Run `npm install`, `npm test`, `npm run lint`, `npm run typecheck`, and
-  `npm run build`; fix every reported issue and rerun the complete suite.
+      `npm run build`; fix every reported issue and rerun the complete suite.
 - [ ] Check `git diff --check`, verify no secrets or CV PDF were added, inspect
-  the complete directory tree, and confirm repository metadata and the `main`
-  branch.
+      the complete directory tree, and confirm repository metadata and the `main`
+      branch.
 - [ ] Commit with `docs: add development and deployment guidance`.
 - [ ] Push `main`, compare local and remote commit SHAs, and verify the
-  repository URL.
+      repository URL.
