@@ -1,0 +1,59 @@
+export interface SocialLink {
+  label: string;
+  href?: string;
+  displayValue: string;
+  isPlaceholder: boolean;
+}
+
+export interface SiteConfig {
+  name: string;
+  title: string;
+  description: string;
+  url: string;
+  email: SocialLink;
+  socials: SocialLink[];
+  cvPath: string;
+  cvAvailable: boolean;
+}
+
+export interface Profile {
+  name: string;
+  title: string;
+  summary: string;
+  background: string[];
+  careerFocus: string;
+  introduction: string;
+  technicalStrengths: string[];
+}
+
+export interface NavigationItem {
+  label: string;
+  href: string;
+}
+
+export interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl?: string;
+  liveDemoUrl?: string;
+  featured: boolean;
+  isPlaceholder: boolean;
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  summary: string;
+  achievements: string[];
+  technologies: string[];
+  isPlaceholder: boolean;
+}
+
+export interface SkillGroup {
+  name: string;
+  skills: string[];
+}
