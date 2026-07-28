@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 
 interface ButtonLinkProps {
   children: ReactNode;
+  download?: boolean | string;
   href: string;
+  target?: "_blank";
   variant?: "primary" | "secondary";
   unavailable?: boolean;
 }
@@ -19,7 +21,9 @@ const variants = {
 
 export function ButtonLink({
   children,
+  download,
   href,
+  target,
   variant = "primary",
   unavailable = false,
 }: ButtonLinkProps) {
@@ -35,7 +39,13 @@ export function ButtonLink({
   }
 
   return (
-    <Link href={href} className={`${baseStyles} ${variants[variant]}`}>
+    <Link
+      href={href}
+      className={`${baseStyles} ${variants[variant]}`}
+      download={download}
+      target={target}
+      rel={target === "_blank" ? "noreferrer" : undefined}
+    >
       {children}
     </Link>
   );

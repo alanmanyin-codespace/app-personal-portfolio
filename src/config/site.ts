@@ -2,27 +2,30 @@ import type { SiteConfig } from "@/types/content";
 
 export const siteConfig: SiteConfig = {
   name: "Alan Man",
-  title: "Software Developer specializing in Web Applications",
+  title: "Full-Stack Developer building enterprise web applications",
   description:
-    "Software developer experienced in building modern web applications, internal business systems, APIs, and cloud-based solutions.",
+    "Full-stack developer with 5+ years of experience delivering enterprise web applications, APIs, cloud integrations, and data-driven systems.",
   url: "https://personal-space-vert.vercel.app",
   email: {
     label: "Email",
-    displayValue: "Email address to be added",
-    isPlaceholder: true,
+    href: "mailto:alanmanyin919@outlook.com",
+    displayValue: "alanmanyin919@outlook.com",
+    isPlaceholder: false,
   },
   socials: [
     {
       label: "GitHub",
-      displayValue: "GitHub profile to be added",
-      isPlaceholder: true,
+      href: "https://github.com/alanmanyin-codespace",
+      displayValue: "alanmanyin-codespace",
+      isPlaceholder: false,
     },
     {
       label: "LinkedIn",
-      displayValue: "LinkedIn profile to be added",
-      isPlaceholder: true,
+      href: "https://www.linkedin.com/in/alanmanyin919",
+      displayValue: "alanmanyin919",
+      isPlaceholder: false,
     },
   ],
   cvPath: "/cv/alan-man-cv.pdf",
-  cvAvailable: false,
+  cvAvailable: true,
 };

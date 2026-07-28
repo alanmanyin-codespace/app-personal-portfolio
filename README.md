@@ -1,12 +1,11 @@
 # Alan Man — Developer Portfolio
 
-Initial framework for Alan Man's professional software developer portfolio. The
-site is designed for job-search use and provides a clean structure for verified
-projects, employment history, technical skills, contact details, and a future
-CV.
+Professional software developer portfolio for Alan Man. The site is designed
+for job-search use and presents verified technical skills, anonymous
+professional engagements, education, contact details, and a downloadable CV.
 
-Current personal details and case studies are intentionally marked as
-placeholders. Replace them with verified information before public launch.
+Project case studies remain placeholders until verified public examples are
+available.
 
 ## Technology stack
 
@@ -69,8 +68,8 @@ Tailwind CSS, and Prettier.
 | `/`           | Hero, skills overview, featured projects, and contact call-to-action |
 | `/about`      | Professional background, career focus, introduction, and strengths   |
 | `/projects`   | Responsive project-card gallery                                      |
-| `/experience` | Employment timeline and achievements                                 |
-| `/cv`         | CV overview and future PDF download                                  |
+| `/experience` | Anonymous professional engagements and contributions                 |
+| `/cv`         | Public CV viewer and PDF download                                    |
 | `/contact`    | Email and professional-network contact channels                      |
 
 ## Project structure
@@ -81,7 +80,7 @@ Tailwind CSS, and Prettier.
 ├── docs/
 │   ├── plans/               # Implementation plans
 │   └── specs/               # Product and design specifications
-├── public/                  # Add static assets here when needed
+├── public/                  # Portrait and public CV assets
 ├── src/
 │   ├── app/                 # App Router pages, metadata, sitemap, and robots
 │   ├── components/
@@ -95,15 +94,15 @@ Tailwind CSS, and Prettier.
 └── .nvmrc
 ```
 
-The `public/` directory will appear after the first static file is added.
-
 ## Updating personal information
 
-Replace placeholder values in these files:
+Update verified values in these files:
 
-- `src/config/site.ts` — site URL, email, social links, and CV availability
+- `src/config/site.ts` — site URL, email, social links, and CV path
 - `src/data/profile.ts` — title, summary, background, focus, and introduction
 - `src/data/skills.ts` — skill groups
+- `src/data/experience.ts` — anonymous professional engagements
+- `src/data/education.ts` — qualifications and institutions
 - `src/data/navigation.ts` — shared navigation
 
 Keep content factual and concise. Do not set `isPlaceholder` to `false` until
@@ -133,27 +132,28 @@ Add a typed object to `src/data/projects.ts`:
 
 Add a typed object to `src/data/experience.ts` with:
 
-- company
+- engagement title
 - role
 - period
-- location
 - concise summary
-- verified achievements
+- verified contributions
 - technologies
 - placeholder status
 
-Avoid broad or unverifiable claims. Prefer specific contributions and outcomes
-that can be discussed in an interview.
+The public experience model intentionally omits employer name and location.
+Avoid broad or unverifiable claims and prefer contributions that can be
+discussed in an interview.
 
 ## Replacing the CV
 
-1. Create `public/cv/`.
-2. Add the verified PDF as `public/cv/alan-man-cv.pdf`.
-3. Review the PDF for private or outdated information.
-4. Set `cvAvailable` to `true` in `src/config/site.ts`.
-5. Run the full verification commands before committing.
+1. Review the replacement PDF for private or outdated information.
+2. Replace `public/cv/alan-man-cv.pdf` while keeping the same file name.
+3. Confirm `cvPath` remains `/cv/alan-man-cv.pdf` and `cvAvailable` remains
+   `true` in `src/config/site.ts`.
+4. Run the full verification commands before committing.
 
-No sample or fabricated PDF is included.
+Files in `public/` are publicly accessible. The current PDF intentionally
+contains the complete employment record and contact details.
 
 ## Deploying with Vercel
 
@@ -176,10 +176,13 @@ deployments.
 
 ## Current status
 
-The initial framework includes:
+The current portfolio includes:
 
 - all six required routes
-- typed placeholder content
+- verified profile, skills, experience, education, and contact content
+- anonymous employer presentation on normal website pages
+- extracted professional portrait
+- public CV viewer and download
 - responsive desktop and mobile navigation
 - reusable project, skill, and experience components
 - accessible focus states and skip navigation
@@ -190,10 +193,7 @@ The initial framework includes:
 
 ## Planned next steps
 
-1. Review the sample design in a local or Codespaces browser.
-2. Replace placeholders with verified personal information.
-3. Add real project case studies and links.
-4. Add and review the CV PDF.
-5. Connect the GitHub repository to Vercel.
-6. Replace the placeholder site URL and complete a production accessibility
-   review.
+1. Add real project case studies and links.
+2. Replace the CV whenever a reviewed version becomes available.
+3. Complete a production accessibility review.
+4. Add a custom domain when ready.

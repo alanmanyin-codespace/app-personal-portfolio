@@ -43,14 +43,19 @@ export interface Project {
 }
 
 export interface Experience {
-  company: string;
+  engagement: string;
   role: string;
   period: string;
-  location: string;
   summary: string;
   achievements: string[];
   technologies: string[];
   isPlaceholder: boolean;
+}
+
+export interface Education {
+  qualification: string;
+  institution: string;
+  period: string;
 }
 
 export interface SkillGroup {

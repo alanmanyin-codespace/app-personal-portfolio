@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/ui/page-header";
-import { PlaceholderNotice } from "@/components/ui/placeholder-notice";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Start a conversation"
-        description="For software development opportunities, project discussions, or professional networking, use one of the channels below once verified details are added."
+        description="For software development opportunities, project discussions, or professional networking, use one of the channels below."
       />
       <Container className="py-16 lg:py-20">
         <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-[1fr_1.4fr]">
@@ -29,8 +28,8 @@ export default function ContactPage() {
               Contact channels
             </h2>
             <p className="mt-4 leading-7 text-slate-600">
-              This initial version intentionally contains no contact form or
-              message-processing backend.
+              Email is the best way to reach me about opportunities. You can
+              also review my work on GitHub or connect with me on LinkedIn.
             </p>
           </div>
           <div>
@@ -61,12 +60,6 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6">
-              <PlaceholderNotice>
-                Add verified contact details in <code>src/config/site.ts</code>{" "}
-                before public launch.
-              </PlaceholderNotice>
-            </div>
           </div>
         </div>
       </Container>

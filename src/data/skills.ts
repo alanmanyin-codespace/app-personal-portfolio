@@ -2,20 +2,45 @@ import type { SkillGroup } from "@/types/content";
 
 export const skills: SkillGroup[] = [
   {
-    name: "Web applications",
-    skills: ["TypeScript", "React", "Next.js", "Responsive UI"],
-  },
-  {
-    name: "Systems and APIs",
+    name: "Frontend",
     skills: [
-      "API design",
-      "Integrations",
-      "Business systems",
-      "Data modelling",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Angular",
+      "React Native",
+      "Material UI",
+      "HTML",
+      "CSS",
     ],
   },
   {
-    name: "Delivery",
-    skills: ["Cloud deployment", "Testing", "Git workflows", "Documentation"],
+    name: "Backend and integration",
+    skills: [
+      "Python",
+      "Java",
+      "FastAPI",
+      "Spring Boot",
+      "NestJS",
+      "REST APIs",
+      "Microsoft Graph API",
+    ],
+  },
+  {
+    name: "Cloud, data, and delivery",
+    skills: [
+      "Azure App Service",
+      "Azure Functions",
+      "Microsoft Entra ID",
+      "Managed Identity",
+      "Key Vault",
+      "Cosmos DB",
+      "Azure SQL",
+      "DB2",
+      "MongoDB",
+      "MariaDB",
+      "Jenkins",
+      "Azure Pipelines",
+    ],
   },
 ];

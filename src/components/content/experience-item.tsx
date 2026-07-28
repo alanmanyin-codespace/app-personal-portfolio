@@ -1,4 +1,3 @@
-import { PlaceholderNotice } from "@/components/ui/placeholder-notice";
 import type { Experience } from "@/types/content";
 
 interface ExperienceItemProps {
@@ -16,21 +15,18 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-slate-950">
-            {experience.role}
+            {experience.engagement}
           </h2>
-          <p className="mt-1 font-semibold text-blue-700">
-            {experience.company}
-          </p>
+          <p className="mt-1 font-semibold text-blue-700">{experience.role}</p>
         </div>
         <div className="text-sm leading-6 text-slate-500 sm:text-right">
           <p>{experience.period}</p>
-          <p>{experience.location}</p>
         </div>
       </div>
 
       <p className="mt-5 leading-7 text-slate-600">{experience.summary}</p>
 
-      <h3 className="mt-6 font-bold text-slate-950">Selected achievements</h3>
+      <h3 className="mt-6 font-bold text-slate-950">Selected contributions</h3>
       <ul className="mt-3 space-y-2 text-slate-600">
         {experience.achievements.map((achievement) => (
           <li key={achievement} className="flex gap-3">
@@ -52,14 +48,6 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
           </li>
         ))}
       </ul>
-
-      {experience.isPlaceholder ? (
-        <div className="mt-6">
-          <PlaceholderNotice>
-            Replace this entry with verified employment details.
-          </PlaceholderNotice>
-        </div>
-      ) : null}
     </article>
   );
 }

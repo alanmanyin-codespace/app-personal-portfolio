@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/ui/page-header";
-import { PlaceholderNotice } from "@/components/ui/placeholder-notice";
+import { education } from "@/data/education";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
@@ -16,8 +16,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="A thoughtful developer focused on useful software"
-        description="This page is structured for a concise professional narrative. The current copy is provisional and ready to be replaced with verified details."
+        title="Full-stack perspective, practical delivery"
+        description="I build enterprise applications across the interface, service, data, cloud, and deployment layers."
       />
       <Container className="grid gap-12 py-16 lg:grid-cols-[minmax(0,1.5fr)_minmax(18rem,0.8fr)] lg:py-20">
         <div className="space-y-12">
@@ -28,6 +28,27 @@ export default function AboutPage() {
             <div className="mt-5 space-y-4 text-lg leading-8 text-slate-600">
               {profile.background.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+          <section>
+            <h2 className="text-2xl font-bold text-slate-950">Education</h2>
+            <div className="mt-5 grid gap-4">
+              {education.map((item) => (
+                <article
+                  key={item.qualification}
+                  className="rounded-2xl border border-slate-200 bg-white p-6"
+                >
+                  <h3 className="text-lg font-bold text-slate-950">
+                    {item.qualification}
+                  </h3>
+                  <p className="mt-2 leading-7 text-slate-600">
+                    {item.institution}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-blue-700">
+                    {item.period}
+                  </p>
+                </article>
               ))}
             </div>
           </section>
@@ -62,12 +83,6 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="mt-5">
-            <PlaceholderNotice>
-              Replace this page with an accurate career narrative before
-              publishing it for job applications.
-            </PlaceholderNotice>
           </div>
         </aside>
       </Container>

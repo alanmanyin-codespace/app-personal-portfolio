@@ -16,14 +16,14 @@ export default function ExperiencePage() {
     <>
       <PageHeader
         eyebrow="Experience"
-        title="Professional experience"
-        description="A clear timeline structure for verified roles, responsibilities, achievements, and technology stacks."
+        title="Systems I have helped deliver"
+        description="Selected professional engagements are presented by the products, responsibilities, and technologies involved rather than by employer name."
       />
       <Container className="py-16 lg:py-20">
         <div className="mx-auto max-w-4xl space-y-12">
           {experience.map((item) => (
             <ExperienceItem
-              key={`${item.company}-${item.role}`}
+              key={`${item.engagement}-${item.role}`}
               experience={item}
             />
           ))}

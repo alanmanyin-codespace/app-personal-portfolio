@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { ProjectCard } from "@/components/content/project-card";
 import { SkillList } from "@/components/content/skill-list";
@@ -22,24 +23,41 @@ export default function HomePage() {
     <>
       <section className="border-b border-slate-200 bg-white py-20 sm:py-28">
         <Container>
-          <div className="max-w-4xl">
-            <p className="text-sm font-bold tracking-widest text-blue-700 uppercase">
-              Software Developer
-            </p>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl sm:leading-[1.08]">
-              Building useful, reliable web applications for modern teams.
-            </h1>
-            <p className="mt-6 max-w-3xl text-xl font-semibold text-slate-700">
-              {profile.title}
-            </p>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-              {profile.summary}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <ButtonLink href="/projects">View Projects</ButtonLink>
-              <ButtonLink href="/cv" variant="secondary">
-                Download CV
-              </ButtonLink>
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
+            <div className="max-w-4xl">
+              <p className="text-sm font-bold tracking-widest text-blue-700 uppercase">
+                Full-Stack Developer
+              </p>
+              <h1 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl sm:leading-[1.08]">
+                Building enterprise software from interface to infrastructure.
+              </h1>
+              <p className="mt-6 max-w-3xl text-xl font-semibold text-slate-700">
+                {profile.title}
+              </p>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+                {profile.summary}
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <ButtonLink href="/projects">View Projects</ButtonLink>
+                <ButtonLink href="/experience" variant="secondary">
+                  Explore Experience
+                </ButtonLink>
+                <ButtonLink href="/cv" variant="secondary">
+                  Download CV
+                </ButtonLink>
+              </div>
+            </div>
+            <div className="mx-auto w-full max-w-72 lg:max-w-none">
+              <div className="rounded-[2rem] border border-blue-100 bg-blue-50 p-3 shadow-sm">
+                <Image
+                  src="/images/alan-man-profile.png"
+                  alt="Portrait of Alan Man"
+                  width={560}
+                  height={560}
+                  priority
+                  className="aspect-square h-auto w-full rounded-[1.5rem] object-cover"
+                />
+              </div>
             </div>
           </div>
         </Container>
@@ -50,7 +68,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Capabilities"
             title="A practical, full-product perspective"
-            description="A concise overview of the technical areas this portfolio will demonstrate as verified work samples are added."
+            description="Experience across frontend applications, backend services, cloud integrations, data layers, and production delivery."
           />
           <div className="mt-10">
             <SkillList groups={skills} />
@@ -85,8 +103,8 @@ export default function HomePage() {
               Interested in working together?
             </h2>
             <p className="mt-3 text-lg leading-8 text-slate-700">
-              Visit the contact page to see the channels that will be available
-              once the portfolio details are finalized.
+              I am open to software development opportunities and professional
+              conversations about building dependable web applications.
             </p>
           </div>
           <ButtonLink href="/contact">Contact Alan</ButtonLink>
