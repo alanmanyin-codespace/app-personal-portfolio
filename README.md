@@ -37,6 +37,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+### Launch from VS Code
+
+This repository includes two optional ways to start the app in **VS Code**:
+
+1. **Built-in tasks (no extension needed):** press `Cmd/Ctrl+Shift+P` → **Tasks: Run Task** → **Setup: Install Dependencies** (first checkout only) → **Dev: Start Next.js**. Open `http://localhost:3000` once Next.js says it is ready.
+2. **Multiple named terminals:** install the recommended [Terminals Manager](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-terminals) extension, then press `Cmd/Ctrl+Shift+P` → **Terminals: Run** (starts the Next.js terminal) or **Terminals: Run Single** to select **Install Dependencies**, **Lint**, **Typecheck**, **Unit Tests**, or **Production Build**. Configuration is in `.vscode/terminals.json`.
+
+Both approaches require **Node.js 22** and npm. If you use nvm, run `nvm use` in the project directory first. The terminal configuration intentionally has **autorun disabled**, so opening the repository does not execute commands without your choice.
+
+Stop a running development server with `Ctrl+C` in its terminal. If port 3000 is busy, stop the conflicting server before retrying.
+
 Available checks:
 
 ```bash
