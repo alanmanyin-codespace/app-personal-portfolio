@@ -1,0 +1,50 @@
+{
+  "autorun": false,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "Next.js Dev Server",
+      "description": "Run the portfolio at http://localhost:3000",
+      "cwd": "${workspaceFolder}",
+      "command": "npm run dev",
+      "icon": "play",
+      "focus": true
+    },
+    {
+      "name": "Install Dependencies",
+      "description": "Install locked dependencies (run once after cloning)",
+      "cwd": "${workspaceFolder}",
+      "command": "npm ci",
+      "icon": "package",
+      "onlySingle": true
+    },
+    {
+      "name": "Lint",
+      "description": "Run ESLint",
+      "cwd": "${workspaceFolder}",
+      "command": "npm run lint",
+      "onlySingle": true
+    },
+    {
+      "name": "Typecheck",
+      "description": "Run the TypeScript checker",
+      "cwd": "${workspaceFolder}",
+      "command": "npm run typecheck",
+      "onlySingle": true
+    },
+    {
+      "name": "Unit Tests",
+      "description": "Run the Vitest suite",
+      "cwd": "${workspaceFolder}",
+      "command": "npm test",
+      "onlySingle": true
+    },
+    {
+      "name": "Production Build",
+      "description": "Check the Next.js production build",
+      "cwd": "${workspaceFolder}",
+      "command": "npm run build",
+      "onlySingle": true
+    }
+  ]
+}
