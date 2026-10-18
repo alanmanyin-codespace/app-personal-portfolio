@@ -13,7 +13,16 @@
 - [ ] **Projects:** Which real projects are approved for anonymous case studies? What original screenshots/diagrams may be created?
 - [ ] **Public PDF:** Does `public/cv/alan-man-cv.pdf` need replacement after timeline review?
 - [ ] **Vercel:** Confirm live project URL, current production status and access to project scope.
-- [ ] **Public contact:** Confirm preferred recruiter-facing email, LinkedIn/GitHub, and whether phone is intentionally public.
+- [x] **Public contact:** Owner approved publishing +1 825 964 5554 in the CV and website Contact page on 2026-10-18. Email, LinkedIn and portfolio GitHub URLs remain as currently configured.
+
+---
+
+## 2026-10-18 — ChatGPT — Issue #2 public contact correction
+**Status:** Branch `fix/contact-info-20261018` prepared for review; contact changes only, employment chronology review remains open.  
+**Owner approval:** Show the Canadian phone number +1 825 964 5554 in the downloadable public CV and the website Contact page.  
+**Files:** `src/config/site.ts`, `src/types/content.ts`, `src/app/contact/page.tsx`, `public/cv/alan-man-cv.pdf`.  
+**Checks:** PDF rendered/extracted separately; GitHub CI checks to be confirmed.  
+**Next owner:** Review phone and PDF content on the PR, then merge if accepted. Other Issue #2 audit checkpoints remain unresolved. 
 
 ---
 
