@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const channels = [siteConfig.email, ...siteConfig.socials];
+  const channels = [
+    siteConfig.email,
+    ...(siteConfig.phone ? [siteConfig.phone] : []),
+    ...siteConfig.socials,
+  ];
 
   return (
     <>
@@ -28,7 +32,7 @@ export default function ContactPage() {
               Contact channels
             </h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Email is the best way to reach me about opportunities. You can
+              Email or call me about software development opportunities. You can
               also review my work on GitHub or connect with me on LinkedIn.
             </p>
           </div>
