@@ -12,6 +12,12 @@ export const siteConfig: SiteConfig = {
     displayValue: "alanmanyin919@outlook.com",
     isPlaceholder: false,
   },
+  phone: {
+    label: "Phone",
+    href: "tel:+18259645554",
+    displayValue: "+1 825 964 5554",
+    isPlaceholder: false,
+  },
   socials: [
     {
       label: "GitHub",
