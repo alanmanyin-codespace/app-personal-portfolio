@@ -11,6 +11,7 @@ export interface SiteConfig {
   description: string;
   url: string;
   email: SocialLink;
+  phone?: SocialLink;
   socials: SocialLink[];
   cvPath: string;
   cvAvailable: boolean;
