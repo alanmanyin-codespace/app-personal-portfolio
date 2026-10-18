@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { PlaceholderNotice } from "@/components/ui/placeholder-notice";
+import { isPublishedCaseStudy } from "@/lib/project-publication";
 import type { Project } from "@/types/content";
 
 interface ProjectCardProps {
@@ -37,6 +38,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </ul>
 
       <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+        {isPublishedCaseStudy(project) ? (
+          <Link
+            href={`/projects/${encodeURIComponent(project.slug)}`}
+            className="rounded-sm text-blue-700 hover:text-blue-900"
+          >
+            Read Case Study
+          </Link>
+        ) : null}
         {project.githubUrl ? (
           <Link
             href={project.githubUrl}
