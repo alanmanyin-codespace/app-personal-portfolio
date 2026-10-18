@@ -22,6 +22,33 @@ describe("ProjectCard", () => {
     expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 
+  it("links only to approved, complete case studies", () => {
+    const reviewed: Project = {
+      ...placeholderProject,
+      isPlaceholder: false,
+      classification: "independent-demo",
+      caseStudy: {
+        role: "Built an original demo",
+        challenge: "Demonstrate an API workflow.",
+        decisions: ["Used synthetic cases."],
+        outcomes: ["Demonstrated a working example."],
+      },
+    };
+
+    const { rerender } = render(<ProjectCard project={reviewed} />);
+
+    expect(screen.getByRole("link", { name: "Read Case Study" })).toHaveAttribute(
+      "href",
+      "/projects/sample-project",
+    );
+
+    rerender(<ProjectCard project={{ ...reviewed, isPlaceholder: true }} />);
+    expect(screen.queryByRole("link", { name: "Read Case Study" })).toBeNull();
+
+    rerender(<ProjectCard project={{ ...reviewed, caseStudy: undefined }} />);
+    expect(screen.queryByRole("link", { name: "Read Case Study" })).toBeNull();
+  });
+
   it("presents the technology list as structured content", () => {
     render(<ProjectCard project={placeholderProject} />);
 
