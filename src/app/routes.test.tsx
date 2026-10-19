@@ -14,7 +14,7 @@ describe("portfolio routes", () => {
 
     expect(
       screen.getByRole("img", { name: "Portrait of Alan Man" }),
-    ).toHaveAttribute("src", expect.stringContaining("alan-man-profile"));
+    ).toHaveAttribute("src", expect.stringContaining("alan-man-profile.jpg"));
     expect(screen.getByRole("link", { name: "View Projects" })).toHaveAttribute(
       "href",
       "/projects",

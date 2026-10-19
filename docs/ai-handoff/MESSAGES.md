@@ -17,6 +17,13 @@
 
 ---
 
+## 2026-10-18 — ChatGPT — Original profile portrait
+**Status:** Feature branch `feat/original-portrait-20261018`; PR pending.  
+**Scope:** Owner-supplied, original profile image uploaded privately to Google Drive `Personal Space Portfolio`, and optimized JPEG used on the portfolio homepage at `public/images/alan-man-profile.jpg`.  
+**Changes:** New web portrait, homepage `next/image` source, and home-route image test. Retained the previous PNG as a safe fallback.  
+**Checks:** Confirmed 1254x1254 original and optimized 150 KB JPEG; application tests/build not run in the GitHub connector.  
+**Next:** Owner review of image crop/render in preview before merge.
+
 ## 2026-10-18 — ChatGPT — Issue #2 public contact correction
 **Status:** Branch `fix/contact-info-20261018` prepared for review; contact changes only, employment chronology review remains open.  
 **Owner approval:** Show the Canadian phone number +1 825 964 5554 in the downloadable public CV and the website Contact page.  
