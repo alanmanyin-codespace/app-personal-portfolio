@@ -50,7 +50,7 @@ export default function HomePage() {
             <div className="mx-auto w-full max-w-72 lg:max-w-none">
               <div className="rounded-[2rem] border border-blue-100 bg-blue-50 p-3 shadow-sm">
                 <Image
-                  src="/images/alan-man-profile.png"
+                  src="/images/alan-man-profile.jpg"
                   alt="Portrait of Alan Man"
                   width={560}
                   height={560}
