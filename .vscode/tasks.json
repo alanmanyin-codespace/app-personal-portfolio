@@ -1,0 +1,129 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: Install Dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "ci"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    },
+    {
+      "label": "Dev: Start Next.js",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": true
+      }
+    },
+    {
+      "label": "Check: Lint",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "lint"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    },
+    {
+      "label": "Check: Typecheck",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "typecheck"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    },
+    {
+      "label": "Check: Tests",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    },
+    {
+      "label": "Check: Production Build",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    },
+    {
+      "label": "Check: All",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Check: Lint",
+        "Check: Typecheck",
+        "Check: Tests",
+        "Check: Production Build"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
