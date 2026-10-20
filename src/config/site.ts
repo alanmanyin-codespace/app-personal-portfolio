@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "Full-Stack Developer building enterprise web applications",
   description:
     "Full-stack developer with 5+ years of experience delivering enterprise web applications, APIs, cloud integrations, and data-driven systems.",
-  url: "https://personal-space-vert.vercel.app",
+  url: "https://alan-man-personal-space.vercel.app",
   email: {
     label: "Email",
     href: "mailto:alanmanyin919@outlook.com",

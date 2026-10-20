@@ -46,7 +46,7 @@ describe("portfolio content", () => {
   });
 
   it("uses the configured production URL for metadata and discovery files", () => {
-    expect(siteConfig.url).toBe("https://personal-space-vert.vercel.app");
+    expect(siteConfig.url).toBe("https://alan-man-personal-space.vercel.app");
     expect(siteConfig.title).toBe(
       "Full-Stack Developer building enterprise web applications",
     );
