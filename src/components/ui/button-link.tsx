@@ -11,12 +11,13 @@ interface ButtonLinkProps {
 }
 
 const baseStyles =
-  "inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-sm font-bold transition-colors";
+  "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300";
 
 const variants = {
-  primary: "bg-blue-700 text-white hover:bg-blue-800",
+  primary:
+    "bg-gradient-to-r from-azure-500 to-cyan-300 text-night-950 shadow-[0_10px_30px_-10px_rgba(46,107,255,0.8)] hover:shadow-[0_14px_38px_-10px_rgba(103,232,249,0.8)] hover:-translate-y-0.5",
   secondary:
-    "border border-slate-300 bg-white text-slate-800 hover:border-blue-400 hover:text-blue-700",
+    "border border-azure-300/25 bg-night-800/50 text-ink backdrop-blur-sm hover:border-azure-300/60 hover:bg-night-800/80",
 };
 
 export function ButtonLink({
@@ -31,7 +32,7 @@ export function ButtonLink({
     return (
       <span
         aria-disabled="true"
-        className={`${baseStyles} cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-500`}
+        className={`${baseStyles} cursor-not-allowed border border-azure-300/15 bg-night-800/40 text-ink-faint`}
       >
         {children}
       </span>

@@ -1,8 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+  --color-night-950: #070a1f;
+  --color-night-900: #0b1026;
+  --color-night-800: #111a3b;
+  --color-night-700: #1b2750;
+
+  --color-ink: #e7ecf7;
+  --color-ink-muted: #b4c0dc;
+  --color-ink-faint: #8794b4;
+
+  --color-azure-200: #bcd4ff;
+  --color-azure-300: #8fb6ff;
+  --color-azure-400: #5a9bff;
+  --color-azure-500: #2e6bff;
+  --color-violet-300: #c4b5fd;
+  --color-cyan-300: #67e8f9;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-geist), ui-monospace, SFMono-Regular, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #1e293b;
+  --background: #0b1026;
+  --foreground: #e7ecf7;
 }
 
 * {
@@ -11,14 +32,16 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a,
@@ -27,12 +50,102 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 2px solid var(--color-azure-400);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 ::selection {
-  background: #dbeafe;
-  color: #172554;
+  background: rgba(90, 155, 255, 0.35);
+  color: #ffffff;
+}
+
+/* Themed scrollbar — the surfaces the design system must not leave as defaults */
+* {
+  scrollbar-color: rgba(90, 155, 255, 0.45) transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(90, 155, 255, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 182, 255, 0.55);
+  background-clip: content-box;
+}
+
+/* Glass panel — the pinned world's primary material */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(23, 37, 84, 0.55) 0%,
+    rgba(11, 16, 38, 0.6) 100%
+  );
+  border: 1px solid rgba(118, 162, 255, 0.18);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  box-shadow:
+    0 1px 0 0 rgba(188, 212, 255, 0.08) inset,
+    0 18px 40px -24px rgba(5, 10, 30, 0.9);
+}
+
+/* Hero instrument panels — backlit glass that reads as lit, not flat */
+.glass-lit {
+  background:
+    radial-gradient(
+      140% 120% at 50% 0%,
+      rgba(46, 107, 255, 0.16) 0%,
+      rgba(23, 37, 84, 0.5) 42%,
+      rgba(11, 16, 38, 0.6) 100%
+    );
+  border: 1px solid rgba(118, 162, 255, 0.22);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  box-shadow:
+    0 1px 0 0 rgba(188, 212, 255, 0.16) inset,
+    0 0 40px -22px rgba(90, 155, 255, 0.7) inset,
+    0 22px 50px -26px rgba(5, 10, 30, 0.95);
+}
+
+.glass-hover {
+  transition:
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.glass-hover:hover {
+  border-color: rgba(143, 182, 255, 0.4);
+  box-shadow:
+    0 1px 0 0 rgba(188, 212, 255, 0.12) inset,
+    0 24px 60px -28px rgba(46, 107, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Faint constellation-line stroke used around the hero */
+.constellation-line {
+  stroke: rgba(143, 182, 255, 0.28);
+  stroke-width: 1;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,6 +153,12 @@ button {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
   }
 }

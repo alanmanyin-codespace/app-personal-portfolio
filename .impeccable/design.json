@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T00:00:00Z",
+  "title": "Design System: Starlight Stack",
+  "extensions": {
+    "colorMeta": {
+      "azure-500": { "role": "primary", "displayName": "Electric Azure", "canonical": "#2e6bff", "tonalRamp": ["#0a1b47", "#102a66", "#173a8a", "#2056b0", "#2e6bff", "#5a8bff", "#8fb0ff", "#c6d8ff"] },
+      "azure-400": { "role": "primary", "displayName": "Azure Bright", "canonical": "#5a9bff", "tonalRamp": ["#0d1f4a", "#13306b", "#1b4494", "#2a63c6", "#3d7ff0", "#5a9bff", "#93bcff", "#cbdfff"] },
+      "azure-300": { "role": "primary", "displayName": "Azure Sky", "canonical": "#8fb6ff", "tonalRamp": ["#122548", "#1c3a6e", "#28539b", "#3a72c9", "#5f95ee", "#8fb6ff", "#b6d0ff", "#e0ebff"] },
+      "azure-200": { "role": "primary", "displayName": "Azure Pale", "canonical": "#bcd4ff", "tonalRamp": ["#1b2f54", "#294780", "#3a63ad", "#5285d4", "#80aef0", "#a9c6ff", "#bcd4ff", "#e6efff"] },
+      "cyan-300": { "role": "secondary", "displayName": "Cyan Spark", "canonical": "#67e8f9", "tonalRamp": ["#063844", "#0a5565", "#0f7489", "#1795ad", "#2fb6cf", "#48d2e8", "#67e8f9", "#b3f4fc"] },
+      "violet-300": { "role": "tertiary", "displayName": "Soft Violet", "canonical": "#c4b5fd", "tonalRamp": ["#1f1a3a", "#312a59", "#453b7d", "#5d50a6", "#7d6fd0", "#a08ff0", "#c4b5fd", "#e5defe"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#e7ecf7", "tonalRamp": ["#1a1f2e", "#2b3346", "#404a63", "#5b6888", "#7d8bad", "#a6b2cf", "#cbd4e8", "#e7ecf7"] },
+      "ink-muted": { "role": "neutral", "displayName": "Ink Muted", "canonical": "#b4c0dc", "tonalRamp": ["#171c28", "#262e40", "#3a445d", "#54607f", "#7482a4", "#95a2c2", "#b4c0dc", "#dde4f1"] },
+      "ink-faint": { "role": "neutral", "displayName": "Ink Faint", "canonical": "#8794b4", "tonalRamp": ["#141824", "#212838", "#333c52", "#48526e", "#636f90", "#8794b4", "#aab4cd", "#d6dce9"] },
+      "night-950": { "role": "neutral", "displayName": "Night 950", "canonical": "#070a1f", "tonalRamp": ["#070a1f", "#0b1026", "#111a3b", "#1b2750", "#2a3a6e", "#3f538f", "#6176b0", "#8f9fcd"] },
+      "night-900": { "role": "neutral", "displayName": "Night 900", "canonical": "#0b1026", "tonalRamp": ["#070a1f", "#0b1026", "#111a3b", "#1b2750", "#2a3a6e", "#3f538f", "#6176b0", "#8f9fcd"] },
+      "night-800": { "role": "neutral", "displayName": "Night 800", "canonical": "#111a3b", "tonalRamp": ["#070a1f", "#0b1026", "#111a3b", "#1b2750", "#2a3a6e", "#3f538f", "#6176b0", "#8f9fcd"] },
+      "night-700": { "role": "neutral", "displayName": "Night 700", "canonical": "#1b2750", "tonalRamp": ["#070a1f", "#0b1026", "#111a3b", "#1b2750", "#2a3a6e", "#3f538f", "#6176b0", "#8f9fcd"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name only; one per page, Inter 700, tight tracking." },
+      "headline": { "displayName": "Headline", "purpose": "Inner-page PageHeader h1." },
+      "title": { "displayName": "Title", "purpose": "Section headings (SectionHeading h2) and feature-panel headings." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and prose in ink-muted, held to a max-w-3xl measure." },
+      "label": { "displayName": "Label / Mono", "purpose": "Geist Mono for status lines, metadata, tags, constellation labels only." }
+    },
+    "shadows": [
+      { "name": "glass-ambient", "value": "0 1px 0 0 rgba(188,212,255,0.08) inset, 0 18px 40px -24px rgba(5,10,30,0.9)", "purpose": "Resting elevation for standard glass panels." },
+      { "name": "glass-lit", "value": "0 1px 0 0 rgba(188,212,255,0.16) inset, 0 0 40px -22px rgba(90,155,255,0.7) inset, 0 22px 50px -26px rgba(5,10,30,0.95)", "purpose": "Backlit hero instrument panels, lit from within." },
+      { "name": "glass-hover", "value": "0 1px 0 0 rgba(188,212,255,0.12) inset, 0 24px 60px -28px rgba(46,107,255,0.5)", "purpose": "Hover state on interactive glass; paired with translateY(-3px)." },
+      { "name": "primary-glow", "value": "0 10px 30px -10px rgba(46,107,255,0.8)", "purpose": "Azure halo under the primary button; warms to cyan on hover (0 14px 38px -10px rgba(103,232,249,0.8))." },
+      { "name": "node-glow", "value": "0 0 40px -6px rgba(90,155,255,0.8)", "purpose": "Localized backlight around the constellation portrait; icon wells use 0 0 20px -6px." }
+    ],
+    "motion": [
+      { "name": "rise", "value": "rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both", "purpose": "One-shot entrance: content fades and translates up 18px on load." },
+      { "name": "glass-ease", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "0.4s easing for glass border/shadow/transform hover transitions." },
+      { "name": "button-transition", "value": "all 0.3s", "purpose": "Button hover (shadow + lift)." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce -> animations and starfield collapse to stillness", "purpose": "Accessibility invariant; the starfield is the single authored motion moment." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single most important action per view; azure-to-cyan gradient pill with glow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m3 7 9 6 9-6\"/></svg>Get in touch</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: 9999px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: #070a1f; background: linear-gradient(to right, #2e6bff, #67e8f9); box-shadow: 0 10px 30px -10px rgba(46,107,255,0.8); text-decoration: none; transition: all 0.3s; } .ds-btn-primary:hover { box-shadow: 0 14px 38px -10px rgba(103,232,249,0.8); transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid #5a9bff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Glass-outline pill for secondary actions; never a second gradient.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">View projects<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: 9999px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: #e7ecf7; background: rgba(17,26,59,0.5); border: 1px solid rgba(143,182,255,0.25); backdrop-filter: blur(4px); text-decoration: none; transition: all 0.3s; } .ds-btn-secondary:hover { border-color: rgba(143,182,255,0.6); background: rgba(17,26,59,0.8); } .ds-btn-secondary:focus-visible { outline: 2px solid #5a9bff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Standard content surface: translucent navy glass with hairline azure border and hover lift.",
+      "html": "<article class=\"ds-card-glass\"><h3>Enterprise case-management platform</h3><p>Cross-stack delivery across frontend, services, data, and cloud.</p><ul class=\"ds-tags\"><li>React</li><li>TypeScript</li><li>Azure</li></ul></article>",
+      "css": ".ds-card-glass { display: flex; flex-direction: column; padding: 24px; border-radius: 16px; background: linear-gradient(180deg, rgba(23,37,84,0.55) 0%, rgba(11,16,38,0.6) 100%); border: 1px solid rgba(118,162,255,0.18); backdrop-filter: blur(14px) saturate(130%); box-shadow: 0 1px 0 0 rgba(188,212,255,0.08) inset, 0 18px 40px -24px rgba(5,10,30,0.9); transition: border-color 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1); } .ds-card-glass:hover { border-color: rgba(143,182,255,0.4); box-shadow: 0 1px 0 0 rgba(188,212,255,0.12) inset, 0 24px 60px -28px rgba(46,107,255,0.5); transform: translateY(-3px); } .ds-card-glass h3 { margin: 0; font-family: Inter, sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; color: #e7ecf7; } .ds-card-glass p { margin: 16px 0 0; font-family: Inter, sans-serif; line-height: 1.75; color: #b4c0dc; } .ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; } .ds-tags li { padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(143,182,255,0.15); background: rgba(17,26,59,0.5); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.7rem; color: #b4c0dc; }"
+    },
+    {
+      "name": "Lit Hero Panel",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Backlit instrument panel used in the hero row; inner radial azure glow reads as lit from within.",
+      "html": "<div class=\"ds-panel-lit\"><span class=\"ds-icon-well\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"#8fb6ff\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"7\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/></svg></span><p class=\"ds-panel-title\">Enterprise case-management and AI workflow platform</p><p class=\"ds-panel-meta\">System Developer &middot; May 2025-Present</p></div>",
+      "css": ".ds-panel-lit { display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 16px; background: radial-gradient(140% 120% at 50% 0%, rgba(46,107,255,0.16) 0%, rgba(23,37,84,0.5) 42%, rgba(11,16,38,0.6) 100%); border: 1px solid rgba(118,162,255,0.22); backdrop-filter: blur(14px) saturate(130%); box-shadow: 0 1px 0 0 rgba(188,212,255,0.16) inset, 0 0 40px -22px rgba(90,155,255,0.7) inset, 0 22px 50px -26px rgba(5,10,30,0.95); } .ds-icon-well { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; border: 1px solid rgba(143,182,255,0.3); background: rgba(17,26,59,0.7); box-shadow: 0 0 20px -6px rgba(90,155,255,0.8); } .ds-panel-title { margin: 0; font-family: Inter, sans-serif; font-size: 0.875rem; font-weight: 600; line-height: 1.375; color: #e7ecf7; } .ds-panel-meta { margin: auto 0 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.7rem; line-height: 1.6; color: #b4c0dc; }"
+    },
+    {
+      "name": "Status Pill",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Mono availability pill with a glowing cyan status dot.",
+      "html": "<span class=\"ds-status-pill\"><span class=\"ds-dot\"></span>Open to full-stack opportunities</span>",
+      "css": ".ds-status-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; border: 1px solid rgba(143,182,255,0.25); background: rgba(11,16,38,0.75); backdrop-filter: blur(4px); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.7rem; color: #b4c0dc; } .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: #67e8f9; box-shadow: 0 0 8px 1px rgba(103,232,249,0.9); }"
+    },
+    {
+      "name": "Tech Tag",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Mono technology tag used in project cards.",
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "css": ".ds-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(143,182,255,0.15); background: rgba(17,26,59,0.5); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.7rem; color: #b4c0dc; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Sticky glass top bar with code-bracket monogram and gradient-underlined active link.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-monogram\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m8 8-4 4 4 4\"/><path d=\"m16 8 4 4-4 4\"/></svg></span>Alan Man</a><nav class=\"ds-navlinks\"><a class=\"ds-navlink ds-active\" href=\"#\">Home</a><a class=\"ds-navlink\" href=\"#\">About</a><a class=\"ds-navlink\" href=\"#\">Projects</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 64px; padding: 0 32px; border-bottom: 1px solid rgba(143,182,255,0.1); background: rgba(11,16,38,0.7); backdrop-filter: blur(24px); } .ds-brand { display: flex; align-items: center; gap: 10px; font-family: Inter, sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; color: #e7ecf7; text-decoration: none; } .ds-monogram { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; border: 1px solid rgba(143,182,255,0.3); background: rgba(17,26,59,0.7); color: #8fb6ff; } .ds-navlinks { display: flex; align-items: center; gap: 4px; } .ds-navlink { position: relative; padding: 8px 12px; border-radius: 8px; font-family: Inter, sans-serif; font-size: 0.875rem; font-weight: 500; color: #b4c0dc; text-decoration: none; transition: color 0.2s; } .ds-navlink:hover { color: #e7ecf7; } .ds-navlink.ds-active { color: #bcd4ff; } .ds-navlink.ds-active::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 1px; background: linear-gradient(to right, #5a9bff, #67e8f9); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Starlight Stack — instrument panels in a night sky",
+    "overview": "This is a developer portfolio built as a quiet, deep-indigo night sky. Real enterprise work floats as translucent blue-glass panels — instrument readouts lit from within — over a painted nebula and a drifting procedural starfield. The tech stack is drawn as a literal constellation: the owner's portrait is the brightest star at center, each core technology an icon node joined to it by faint lines. The world refuses both the flat white resume page and the generic dark-hero-with-gradient dev template; its materials (glass, backlight, starlight) are load-bearing, not decoration. The density is calm and centered, with generous vertical rhythm and a narrow readable measure for prose. Color is disciplined — the ground is near-black indigo, text is cool off-white, and the electric azure-to-cyan accent is spent sparingly on the one primary action and on active/hover states. Motion is restrained to one authored moment: the starfield twinkles, drifts, and parallaxes toward the pointer, and content rises once on load; all of it collapses to stillness under prefers-reduced-motion.",
+    "keyCharacteristics": [
+      "Deep indigo night ground (#0b1026) carrying a painted nebula plus a live starfield",
+      "Translucent blue-glass panels as the primary material, lit not flat",
+      "A single electric azure-to-cyan accent, spent rarely",
+      "Inter for everything structural; Geist Mono reserved for data, status, and tags",
+      "The portrait-centered tech constellation as the signature device",
+      "Reduced-motion-aware; one authored motion moment"
+    ],
+    "rules": [
+      { "name": "The One Bright Star Rule", "body": "The cyan-to-azure primary gradient appears once per viewport — on the single most important action (Get in touch). Secondary actions are glass outlines, never a second gradient. The accent's rarity is what makes it read as light.", "section": "colors" },
+      { "name": "The Ink-On-Night Rule", "body": "Text is always one of the three ink steps on a night or glass ground; never pure #ffffff except inside ::selection and the skip-link. Accent colors label and illuminate — they do not set body copy.", "section": "colors" },
+      { "name": "The Mono-Is-Data Rule", "body": "Geist Mono is used only for machine-flavored facts: status lines, role·period metadata, tech tags, and constellation labels. Never set a sentence or heading in mono.", "section": "typography" },
+      { "name": "The No-Kicker Rule", "body": "Sections and pages open directly on their heading. There are no eyebrow/kicker labels above titles; the eyebrow prop on SectionHeading and PageHeader is retained for call-site compatibility but deliberately never rendered.", "section": "typography" },
+      { "name": "The Backlit-Glass Rule", "body": "Panels are translucent navy glass — never opaque cards. Elevation comes from a hairline top highlight plus a far, soft shadow; a panel that needs to feel primary gets an inner radial backlight (.glass-lit), not a heavier drop shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build every content surface as translucent navy glass (.glass / .glass-lit) with a 1px azure-300 hairline border — not an opaque card.",
+      "Do reserve the azure-to-cyan gradient for the single primary action per view; make every other action a glass-outline secondary pill.",
+      "Do set all status lines, metadata, and tags in Geist Mono at 0.68–0.7rem, wide tracking, ink-muted.",
+      "Do keep text to the three ink steps on a night ground, and use violet-300 only for provisional/placeholder register.",
+      "Do honor prefers-reduced-motion: collapse the starfield and rise animation to stillness.",
+      "Do carry the global focus-visible ring (2px azure-400, 3px offset) on every interactive element."
+    ],
+    "donts": [
+      "Don't add eyebrow/kicker labels above headings; sections open on their title.",
+      "Don't spend the primary gradient twice in one viewport, or use it for body text.",
+      "Don't use pure #ffffff for text (reserved for ::selection and the skip-link).",
+      "Don't convey depth with hard/opaque drop shadows; use the inner highlight + soft ambient + backlight vocabulary.",
+      "Don't set sentences or headings in the mono face, or use mono as a 'technical' costume.",
+      "Don't introduce a new hue family; extend within night / ink / azure / cyan / violet."
+    ]
+  }
+}

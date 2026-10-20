@@ -1,0 +1,116 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#007fff",
+        "createdAt": "2026-10-20T01:19:54.273Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#5c2d91",
+        "createdAt": "2026-10-20T01:19:54.279Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e0234e",
+        "createdAt": "2026-10-20T01:19:54.284Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0f766e",
+        "createdAt": "2026-10-20T01:19:54.284Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#2563eb",
+        "createdAt": "2026-10-20T01:19:54.290Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#4f73ff",
+        "createdAt": "2026-10-20T01:19:54.292Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#d33833",
+        "createdAt": "2026-10-20T01:19:54.292Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#315fa8",
+        "createdAt": "2026-10-20T01:19:54.297Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#6e40c9",
+        "createdAt": "2026-10-20T01:19:54.298Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#d97757",
+        "createdAt": "2026-10-20T01:19:54.298Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f7df1e",
+        "createdAt": "2026-10-20T01:20:14.886Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#dd0031",
+        "createdAt": "2026-10-20T01:20:14.961Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e34f26",
+        "createdAt": "2026-10-20T01:20:15.027Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1572b6",
+        "createdAt": "2026-10-20T01:20:15.090Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e76f00",
+        "createdAt": "2026-10-20T01:20:15.169Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#009688",
+        "createdAt": "2026-10-20T01:20:15.240Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#6db33f",
+        "createdAt": "2026-10-20T01:20:15.308Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#10a37f",
+        "createdAt": "2026-10-20T01:20:15.369Z",
+        "reason": "Agent: intentional technology brand color used only in skill marks"
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { Container } from "@/components/layout/container";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
+import { CodeBracket } from "@/components/visual/icons";
 import { navigation } from "@/data/navigation";
 
 interface HeaderProps {
@@ -16,12 +17,15 @@ export function Header({ pathnameOverride }: HeaderProps) {
   const pathname = pathnameOverride ?? currentPathname;
 
   return (
-    <header className="relative z-20 border-b border-slate-200 bg-white/95">
-      <Container className="flex min-h-18 items-center justify-between gap-8">
+    <header className="sticky top-0 z-30 border-b border-azure-300/10 bg-night-900/70 backdrop-blur-xl">
+      <Container className="flex min-h-16 items-center justify-between gap-8">
         <Link
           href="/"
-          className="rounded-md text-base font-bold tracking-tight text-slate-950 hover:text-blue-700"
+          className="flex items-center gap-2.5 rounded-md text-base font-semibold tracking-tight text-ink hover:text-azure-200"
         >
+          <span className="grid h-8 w-8 place-items-center rounded-lg border border-azure-300/30 bg-night-800/70 text-azure-300">
+            <CodeBracket className="h-4 w-4" />
+          </span>
           Alan Man
         </Link>
 
@@ -35,13 +39,19 @@ export function Header({ pathnameOverride }: HeaderProps) {
                   <Link
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
-                    className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                    className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-blue-50 text-blue-700"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                        ? "text-azure-200"
+                        : "text-ink-muted hover:text-ink"
                     }`}
                   >
                     {item.label}
+                    {isActive ? (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-3 -bottom-px h-px bg-gradient-to-r from-azure-400 to-cyan-300"
+                      />
+                    ) : null}
                   </Link>
                 </li>
               );

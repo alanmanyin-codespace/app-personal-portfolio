@@ -80,7 +80,7 @@ Tailwind CSS, and Prettier.
 | `/about`      | Professional background, career focus, introduction, and strengths   |
 | `/projects`   | Responsive project-card gallery                                      |
 | `/experience` | Anonymous professional engagements and contributions                 |
-| `/cv`         | Public CV viewer and PDF download                                    |
+| `/cv`         | Public CV entry point linking to the owner-approved Google Drive file |
 | `/contact`    | Email and professional-network contact channels                      |
 
 ## Project structure
@@ -155,16 +155,17 @@ The public experience model intentionally omits employer name and location.
 Avoid broad or unverifiable claims and prefer contributions that can be
 discussed in an interview.
 
-## Replacing the CV
+## Updating the CV
 
-1. Review the replacement PDF for private or outdated information.
-2. Replace `public/cv/alan-man-cv.pdf` while keeping the same file name.
-3. Confirm `cvPath` remains `/cv/alan-man-cv.pdf` and `cvAvailable` remains
-   `true` in `src/config/site.ts`.
-4. Run the full verification commands before committing.
+1. Review the replacement file for private or outdated information.
+2. Update `cvPath` in `src/config/site.ts` to the owner-approved public URL.
+3. Confirm `cvAvailable` remains `true`.
+4. Verify the link is publicly reachable, then run the full verification
+   commands before committing.
 
-Files in `public/` are publicly accessible. The current PDF intentionally
-contains the complete employment record and contact details.
+The live CV is hosted externally on Google Drive. The legacy PDF under
+`public/cv/` is intentionally unlinked; files in `public/` remain publicly
+addressable until they are explicitly removed.
 
 ## Deploying with Vercel
 

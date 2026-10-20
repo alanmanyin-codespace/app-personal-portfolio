@@ -20,7 +20,8 @@
 - Next.js 16 / React 19 / TypeScript / Tailwind CSS 4 / Node.js 22.
 - Existing routes: `/`, `/about`, `/projects`, `/experience`, `/cv`, `/contact`.
 - Content modules: `src/data/profile.ts`, `src/data/experience.ts`, `src/data/skills.ts`, `src/data/projects.ts`; shared URL/contact/CV config: `src/config/site.ts`.
-- Static assets: `public/images/` and `public/cv/alan-man-cv.pdf`.
+- Static assets: `public/images/`; the legacy `public/cv/alan-man-cv.pdf` is
+  retained but unlinked. The live CV URL is configured in `src/config/site.ts`.
 - Deployment target: existing Vercel **personal-space** project. Code currently records `https://personal-space-vert.vercel.app` as its canonical site URL, but live deployment/access should be independently confirmed.
 
 ## How to collaborate (deliberately simple)

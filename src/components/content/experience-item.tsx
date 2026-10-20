@@ -6,33 +6,35 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
-    <article className="relative border-l-2 border-blue-200 pl-7">
+    <article className="relative pl-7">
       <span
         aria-hidden="true"
-        className="absolute top-1 -left-[7px] h-3 w-3 rounded-full bg-blue-700 ring-4 ring-white"
+        className="absolute top-1.5 left-0 h-px w-5 bg-gradient-to-r from-azure-400 to-transparent"
+      />
+      <span
+        aria-hidden="true"
+        className="absolute top-0.5 left-0 h-2.5 w-2.5 rounded-full bg-azure-400 shadow-[0_0_14px_2px_rgba(90,155,255,0.8)]"
       />
 
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950">
+          <h2 className="text-2xl font-bold tracking-tight text-ink">
             {experience.engagement}
           </h2>
-          <p className="mt-1 font-semibold text-blue-700">{experience.role}</p>
+          <p className="mt-1 font-semibold text-azure-200">{experience.role}</p>
         </div>
-        <div className="text-sm leading-6 text-slate-500 sm:text-right">
-          <p>{experience.period}</p>
-        </div>
+        <p className="font-mono text-xs leading-6 text-ink-faint sm:text-right">
+          {experience.period}
+        </p>
       </div>
 
-      <p className="mt-5 leading-7 text-slate-600">{experience.summary}</p>
+      <p className="mt-5 leading-7 text-ink-muted">{experience.summary}</p>
 
-      <h3 className="mt-6 font-bold text-slate-950">Selected contributions</h3>
-      <ul className="mt-3 space-y-2 text-slate-600">
+      <h3 className="mt-6 font-semibold text-ink">Selected contributions</h3>
+      <ul className="mt-3 space-y-2 text-ink-muted">
         {experience.achievements.map((achievement) => (
           <li key={achievement} className="flex gap-3">
-            <span aria-hidden="true" className="text-blue-600">
-              •
-            </span>
+            <span aria-hidden="true" className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-azure-400" />
             <span>{achievement}</span>
           </li>
         ))}
@@ -42,7 +44,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
         {experience.technologies.map((technology) => (
           <li
             key={technology}
-            className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700"
+            className="rounded-md border border-azure-300/15 bg-night-800/50 px-2.5 py-1 font-mono text-[0.72rem] text-ink-muted"
           >
             {technology}
           </li>

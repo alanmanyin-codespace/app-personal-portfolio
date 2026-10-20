@@ -11,11 +11,29 @@
 ## Pending decisions
 - [ ] **CV chronology:** What is the owner-approved public wording for Eastech employee employment through 2026-10-02 and distinct consulting engagement from 2026-10-04?
 - [ ] **Projects:** Which real projects are approved for anonymous case studies? What original screenshots/diagrams may be created?
-- [ ] **Public PDF:** Does `public/cv/alan-man-cv.pdf` need replacement after timeline review?
+- [x] **Resume source:** Owner approved the external Google Drive CV URL on 2026-10-19. The legacy `public/cv/alan-man-cv.pdf` remains unlinked.
 - [ ] **Vercel:** Confirm live project URL, current production status and access to project scope.
 - [x] **Public contact:** Owner approved publishing +1 825 964 5554 in the CV and website Contact page on 2026-10-18. Email, LinkedIn and portfolio GitHub URLs remain as currently configured.
 
 ---
+
+## 2026-10-19 — Codex — Role-first homepage layout
+**Topic:** Apply the owner-approved reference direction to the homepage, with the full verified stack beside the portrait and more detailed experience rows.
+**Status:** Implemented on `codex/role-first-homepage`; **not deployed.**  
+**Changes:** Rebuilt `src/app/page.tsx` as a split hero with the complete frontend, backend/integration, cloud/data/identity/delivery, and owner-confirmed AI-tool groups; retained the existing portrait and primary actions. Added `home-skill-groups.tsx`, per-item `skill-mark.tsx` icons, `home-experience-list.tsx`, and a CV-backed `skill-depth-panel.tsx`. Work experience now uses one article per role, with the date directly below the role title and all verified contributions and technologies visible; the adjacent skills panel uses qualitative depth labels rather than fabricated percentages. The homepage and CV page now use the owner-approved Google Drive resume URL instead of the internal PDF. Updated route tests for the new homepage and CV contracts.
+**Preserved:** Public work-history dates and labels are unchanged pending the chronology decision. Featured project cards remain explicitly labeled placeholders. Existing global Starlight Stack styling and unrelated working-tree changes were not rewritten.
+**Checks:** `npm run lint`, `npm run typecheck`, `npm test` (26/26), and `npm run build` pass. Google Drive returned HTTP 200. Playwright desktop (1440px) and mobile (390px) visual review completed. Scoped Impeccable scan found no new component-source failures; URL warnings are attributable to existing global button/contact/project-card styling.
+**Next owner:** Review the committed homepage changes. Deployment remains owner-directed; chronology and real-project decisions remain outstanding.
+
+## 2026-10-18 — Claude Code — "Starlight Stack" UI redesign
+**Topic:** Bold full visual redesign of the whole site via the Impeccable skill.
+**Status:** Implemented in the working tree on `main`; **not committed, not deployed.** Owner review requested before committing/branching.
+**Direction:** Owner-chosen. Pinned reference (teddyyee-portfolio.vercel.app — dark navy/blue glassmorphism, Inter + mono) fused with an owner-requested **starlight / night-sky background**. Persuade mode, mixed recruiter/engineer audience. Comp-first; approved hero composition = "comp 3" (centered name, tech constellation around the real portrait, three glass panels of real experience, CTAs).
+**Changes:** New dark **"Starlight Stack"** world across every route. New files: `src/components/visual/{starfield,icons}.tsx`, `src/components/content/hero-constellation.tsx`, `public/images/nebula-bg.webp` (generated backdrop, provenance embedded), `PRODUCT.md`, `DESIGN.md`, `.impeccable/*`. Reskinned: `globals.css` (dark tokens, `.glass`/`.glass-lit`, Inter+Geist Mono via next/font), `layout.tsx`, header/footer/mobile-nav, buttons, section/page headings, project-card, skill-list, experience-item, case-study, placeholder-notice, and the home/about/projects/experience/contact/cv/404 pages. Updated 2 tests to new button copy.
+**Preserved:** all factual resume copy; **"May 2025–Present" wording untouched** (still pending owner confirmation — see Pending decisions). Projects remain labeled placeholders; no fabricated project visuals/claims. Stack unchanged (Next.js 16 + Tailwind v4, Vercel).
+**Checks:** `next build` passes; **22/22 vitest pass**; `tsc`/eslint clean; Impeccable slop-detector returns 0; finish-review scored all visual findings RESOLVED; text contrast measured (subtitle 6.9:1, pill/panel firmed up). Verified with headless-Chrome CDP screenshots at 1440 + 390 (in `.impeccable/review/`).
+**Open (disclosed):** the comp-led build-phase hero pixel-gate was intentionally **not run** (hero was reflowed from the comp to put the primary CTA above the fold per the direction contract) — recorded as skipped-with-cause in `.impeccable` build state.
+**Next owner:** review the design in a local `npm run dev` or a Vercel preview; if approved, I can commit to a feature branch + open a PR. Still blocked on employment-chronology wording and which real projects may replace placeholders.
 
 ## 2026-10-18 — ChatGPT — Original profile portrait
 **Status:** Feature branch `feat/original-portrait-20261018`; PR pending.  

@@ -19,7 +19,7 @@ export function MobileNavigation({ pathname }: MobileNavigationProps) {
         aria-controls="mobile-navigation"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-800 transition-colors hover:border-blue-400 hover:text-blue-700"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-azure-300/25 bg-night-800/60 text-ink transition-colors hover:border-azure-300/60 hover:text-azure-200"
         onClick={() => setIsOpen((open) => !open)}
       >
         <span aria-hidden="true" className="text-xl leading-none">
@@ -31,7 +31,7 @@ export function MobileNavigation({ pathname }: MobileNavigationProps) {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="absolute inset-x-0 top-full border-b border-slate-200 bg-white px-5 py-4 shadow-lg"
+          className="absolute inset-x-0 top-full border-b border-azure-300/15 bg-night-900/95 px-5 py-4 shadow-[0_24px_60px_-20px_rgba(5,10,30,0.9)] backdrop-blur-xl"
         >
           <ul className="mx-auto flex max-w-6xl flex-col gap-1">
             {navigation.map((item) => {
@@ -42,10 +42,10 @@ export function MobileNavigation({ pathname }: MobileNavigationProps) {
                   <Link
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
-                    className={`block rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                    className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-blue-50 text-blue-700"
-                        : "text-slate-700 hover:bg-slate-50 hover:text-blue-700"
+                        ? "bg-azure-500/15 text-azure-200"
+                        : "text-ink-muted hover:bg-night-800/70 hover:text-ink"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >

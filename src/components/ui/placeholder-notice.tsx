@@ -8,9 +8,9 @@ export function PlaceholderNotice({ children }: PlaceholderNoticeProps) {
   return (
     <aside
       aria-label="Placeholder content notice"
-      className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-950"
+      className="rounded-lg border border-violet-300/25 bg-violet-300/10 px-4 py-3 text-sm leading-6 text-violet-300"
     >
-      <strong>Placeholder:</strong> {children}
+      <strong className="font-semibold">Placeholder:</strong> {children}
     </aside>
   );
 }

@@ -52,8 +52,10 @@ describe("portfolio content", () => {
     );
   });
 
-  it("enables the public CV at the stable website path", () => {
-    expect(siteConfig.cvPath).toBe("/cv/alan-man-cv.pdf");
+  it("uses the owner-approved external CV", () => {
+    expect(siteConfig.cvPath).toBe(
+      "https://drive.google.com/file/d/1n2YpgSzOHSykcdsZBV8Aj_wWznlcOlDX/view?usp=drive_link",
+    );
     expect(siteConfig.cvAvailable).toBe(true);
   });
 });

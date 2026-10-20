@@ -32,6 +32,7 @@ export const siteConfig: SiteConfig = {
       isPlaceholder: false,
     },
   ],
-  cvPath: "/cv/alan-man-cv.pdf",
+  cvPath:
+    "https://drive.google.com/file/d/1n2YpgSzOHSykcdsZBV8Aj_wWznlcOlDX/view?usp=drive_link",
   cvAvailable: true,
 };

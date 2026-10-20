@@ -37,16 +37,16 @@ describe("ProjectCard", () => {
 
     const { rerender } = render(<ProjectCard project={reviewed} />);
 
-    expect(screen.getByRole("link", { name: "Read Case Study" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Read case study" })).toHaveAttribute(
       "href",
       "/projects/sample-project",
     );
 
     rerender(<ProjectCard project={{ ...reviewed, isPlaceholder: true }} />);
-    expect(screen.queryByRole("link", { name: "Read Case Study" })).toBeNull();
+    expect(screen.queryByRole("link", { name: "Read case study" })).toBeNull();
 
     rerender(<ProjectCard project={{ ...reviewed, caseStudy: undefined }} />);
-    expect(screen.queryByRole("link", { name: "Read Case Study" })).toBeNull();
+    expect(screen.queryByRole("link", { name: "Read case study" })).toBeNull();
   });
 
   it("presents the technology list as structured content", () => {
