@@ -35,8 +35,8 @@ const skillDepths: SkillDepth[] = [
   },
   {
     label: "Mobile application delivery",
-    level: "Applied experience",
-    filledSegments: 2,
+    level: "Strong experience",
+    filledSegments: 3,
     skills: "React Native, mobile insurance workflows, API integration",
   },
   {

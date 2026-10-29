@@ -28,4 +28,17 @@ describe("ExperienceItem", () => {
       }),
     ).toBeNull();
   });
+
+  it("centers the timeline marker on the engagement heading", () => {
+    const { container } = render(
+      <ExperienceItem experience={verifiedExperience} />,
+    );
+
+    const marker = container.querySelector("article > span");
+
+    expect(marker).toHaveClass("h-8");
+    expect(marker?.children).toHaveLength(2);
+    expect(marker?.children[0]).toHaveClass("top-1/2");
+    expect(marker?.children[1]).toHaveClass("top-1/2");
+  });
 });

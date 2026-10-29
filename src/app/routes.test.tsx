@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import AboutPage from "@/app/about/page";
 import ContactPage from "@/app/contact/page";
@@ -7,6 +7,15 @@ import CvPage from "@/app/cv/page";
 import ExperiencePage from "@/app/experience/page";
 import HomePage, { metadata as homeMetadata } from "@/app/page";
 import ProjectsPage from "@/app/projects/page";
+import { navigation } from "@/data/navigation";
+
+const { redirectMock } = vi.hoisted(() => ({
+  redirectMock: vi.fn(),
+}));
+
+vi.mock("next/navigation", () => ({
+  redirect: redirectMock,
+}));
 
 const externalCvUrl =
   "https://drive.google.com/file/d/1n2YpgSzOHSykcdsZBV8Aj_wWznlcOlDX/view?usp=drive_link";
@@ -16,18 +25,13 @@ describe("portfolio routes", () => {
     expect(homeMetadata.title).toEqual({ absolute: "Alan Man's Portfolio" });
   });
 
-  it("gives visitors direct paths to experience, projects, contact, and the external CV", () => {
+  it("gives visitors direct paths to contact and the external CV", () => {
     render(<HomePage />);
 
     expect(
       screen.getByRole("img", { name: "Portrait of Alan Man" }),
     ).toHaveAttribute("src", expect.stringContaining("alan-man-profile.jpg"));
-    expect(
-      screen.getByRole("link", { name: "View experience" }),
-    ).toHaveAttribute("href", "/experience");
-    expect(
-      screen.getByRole("link", { name: "View all projects" }),
-    ).toHaveAttribute("href", "/projects");
+    expect(screen.queryByRole("link", { name: "View experience" })).toBeNull();
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "/contact",
@@ -40,6 +44,17 @@ describe("portfolio routes", () => {
       "target",
       "_blank",
     );
+  });
+
+  it("keeps featured projects off the homepage", () => {
+    render(<HomePage />);
+
+    expect(
+      screen.queryByRole("heading", { name: "Featured projects" }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("link", { name: "View all projects" }),
+    ).not.toBeInTheDocument();
   });
 
   it("shows the complete professional skill groups and AI tools in the hero", () => {
@@ -73,52 +88,12 @@ describe("portfolio routes", () => {
     }
   });
 
-  it("presents each role as a detailed full-width experience entry", () => {
+  it("keeps experience content off the personal-page template", () => {
     render(<HomePage />);
 
-    const systemDeveloper = screen
-      .getByRole("heading", { name: "System Developer" })
-      .closest("article");
-    const analystProgrammer = screen
-      .getByRole("heading", { name: "Analyst Programmer" })
-      .closest("article");
-
-    expect(systemDeveloper).not.toBeNull();
-    expect(analystProgrammer).not.toBeNull();
-    expect(within(systemDeveloper!).getByText("May 2025–Present")).toBeVisible();
-    expect(
-      within(systemDeveloper!).getByText(
-        /Built production workflows for case pickup, assignment, reassignment/,
-      ),
-    ).toBeVisible();
-    expect(
-      within(analystProgrammer!).getByText("March 2021–January 2025"),
-    ).toBeVisible();
-    expect(
-      within(analystProgrammer!).getByText(
-        /Developed end-to-end policy application journeys/,
-      ),
-    ).toBeVisible();
-  });
-
-  it("summarizes CV-backed skill depth beside the work experience", () => {
-    render(<HomePage />);
-
-    const skillsPanel = screen
-      .getByRole("heading", { name: "Skills" })
-      .closest("aside");
-
-    expect(skillsPanel).not.toBeNull();
-    expect(
-      within(skillsPanel!).getByText("Full-stack web development"),
-    ).toBeVisible();
-    expect(
-      within(skillsPanel!).getByText("Enterprise integration and identity"),
-    ).toBeVisible();
-    expect(
-      within(skillsPanel!).getByText("Cloud and delivery"),
-    ).toBeVisible();
-    expect(within(skillsPanel!).queryByText(/\d+%/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Work experience" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "System Developer" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Analyst Programmer" })).toBeNull();
   });
 
   it("shows at least three structured project cards", () => {
@@ -127,18 +102,21 @@ describe("portfolio routes", () => {
     expect(screen.getAllByRole("article").length).toBeGreaterThanOrEqual(3);
   });
 
-  it("presents verified background and education without placeholder copy", () => {
-    render(<AboutPage />);
+  it("links About to the My journey section on the homepage", () => {
+    render(<HomePage />);
 
+    expect(navigation.find((item) => item.label === "About")?.href).toBe(
+      "/#my-journey",
+    );
     expect(
-      screen.getByRole("heading", { name: "BEng in Computer Engineering" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "Hong Kong University of Science and Technology (HKUST)",
-      ),
-    ).toBeInTheDocument();
-    expect(screen.queryByText(/provisional/i)).toBeNull();
+      screen.getByRole("heading", { name: "My journey" }).closest("section"),
+    ).toHaveAttribute("id", "my-journey");
+  });
+
+  it("redirects the legacy About page to My journey", () => {
+    AboutPage();
+
+    expect(redirectMock).toHaveBeenCalledWith("/#my-journey");
   });
 
   it("presents anonymous professional engagements", () => {

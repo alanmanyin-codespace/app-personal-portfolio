@@ -9,12 +9,11 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
     <article className="relative pl-7">
       <span
         aria-hidden="true"
-        className="absolute top-1.5 left-0 h-px w-5 bg-gradient-to-r from-azure-400 to-transparent"
-      />
-      <span
-        aria-hidden="true"
-        className="absolute top-0.5 left-0 h-2.5 w-2.5 rounded-full bg-azure-400 shadow-[0_0_14px_2px_rgba(90,155,255,0.8)]"
-      />
+        className="absolute top-0 left-0 h-8 w-5"
+      >
+        <span className="absolute top-1/2 left-0 h-px w-5 -translate-y-1/2 bg-gradient-to-r from-azure-400 to-transparent" />
+        <span className="absolute top-1/2 left-0 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-azure-400 shadow-[0_0_14px_2px_rgba(90,155,255,0.8)]" />
+      </span>
 
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>

@@ -6,10 +6,10 @@ import { useState } from "react";
 import { navigation } from "@/data/navigation";
 
 interface MobileNavigationProps {
-  pathname: string;
+  activeHref: string;
 }
 
-export function MobileNavigation({ pathname }: MobileNavigationProps) {
+export function MobileNavigation({ activeHref }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -35,7 +35,7 @@ export function MobileNavigation({ pathname }: MobileNavigationProps) {
         >
           <ul className="mx-auto flex max-w-6xl flex-col gap-1">
             {navigation.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = activeHref === item.href;
 
               return (
                 <li key={item.href}>

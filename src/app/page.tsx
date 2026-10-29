@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { HomeExperienceList } from "@/components/content/home-experience-list";
 import { HomeSkillGroups } from "@/components/content/home-skill-groups";
-import { ProjectCard } from "@/components/content/project-card";
-import { SkillDepthPanel } from "@/components/content/skill-depth-panel";
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { ArrowRight, Download, Mail } from "@/components/visual/icons";
+import { Download, Mail } from "@/components/visual/icons";
 import { siteConfig } from "@/config/site";
-import { experience } from "@/data/experience";
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 
 export const metadata: Metadata = {
@@ -34,8 +29,6 @@ const homeSkillGroups = [
 ];
 
 export default function HomePage() {
-  const featuredProjects = projects.filter((project) => project.featured);
-
   return (
     <>
       <section className="py-12 sm:py-16 lg:py-20">
@@ -55,10 +48,6 @@ export default function HomePage() {
               </div>
 
               <div className="mt-9 flex flex-wrap gap-3">
-                <ButtonLink href="/experience">
-                  View experience
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </ButtonLink>
                 <ButtonLink
                   href={siteConfig.cvPath}
                   target="_blank"
@@ -90,36 +79,29 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section id="my-journey" className="scroll-mt-20 py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            title="Work experience"
-            description="Detailed contributions across enterprise case management, digital insurance, identity, data, cloud, and production delivery."
-          />
-          <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.65fr)_minmax(19rem,0.75fr)] lg:items-start">
-            <HomeExperienceList items={experience} />
-            <SkillDepthPanel />
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured projects */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading
-              title="Featured projects"
-              description="The cards below define the structure for future case studies. All current examples are placeholders."
-            />
-            <ButtonLink href="/projects" variant="secondary">
-              View all projects
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </ButtonLink>
-          </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
+          <SectionHeading title="My journey" />
+          <div className="mt-6 max-w-3xl space-y-5 text-lg leading-8 text-ink-muted">
+            <p>
+              My journey into software development started with a curiosity
+              about how technology could turn complicated ideas into useful,
+              everyday experiences. I began by building mobile applications,
+              then gradually expanded into frontend, backend, databases, cloud
+              services, and everything involved in bringing software to
+              production.
+            </p>
+            <p>
+              Along the way, I&apos;ve worked on digital insurance journeys,
+              enterprise case-management platforms, identity integrations, and
+              data-driven systems. Each project has taught me something new—not
+              only about technology, but also about listening, solving the right
+              problem, and building software people can depend on.
+            </p>
+            <p>
+              I&apos;m still learning, still exploring, and always looking
+              forward to the next challenge.
+            </p>
           </div>
         </Container>
       </section>

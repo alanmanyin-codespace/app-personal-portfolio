@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
@@ -15,6 +16,37 @@ interface HeaderProps {
 export function Header({ pathnameOverride }: HeaderProps) {
   const currentPathname = usePathname();
   const pathname = pathnameOverride ?? currentPathname;
+  const [isJourneyVisible, setIsJourneyVisible] = useState(false);
+  const activeHref =
+    pathname === "/" && isJourneyVisible ? "/#my-journey" : pathname;
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
+    }
+
+    const journeySection = document.getElementById("my-journey");
+
+    if (!journeySection) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsJourneyVisible(
+          entry.isIntersecting || entry.boundingClientRect.top <= 64,
+        );
+      },
+      {
+        rootMargin: "-64px 0px -50% 0px",
+        threshold: 0,
+      },
+    );
+
+    observer.observe(journeySection);
+
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-30 border-b border-azure-300/10 bg-night-900/70 backdrop-blur-xl">
@@ -32,7 +64,7 @@ export function Header({ pathnameOverride }: HeaderProps) {
         <nav aria-label="Primary navigation" className="hidden md:block">
           <ul className="flex items-center gap-1">
             {navigation.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = activeHref === item.href;
 
               return (
                 <li key={item.href}>
@@ -59,7 +91,7 @@ export function Header({ pathnameOverride }: HeaderProps) {
           </ul>
         </nav>
 
-        <MobileNavigation pathname={pathname} />
+        <MobileNavigation activeHref={activeHref} />
       </Container>
     </header>
   );
