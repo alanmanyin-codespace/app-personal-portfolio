@@ -32,7 +32,6 @@ export const siteConfig: SiteConfig = {
       isPlaceholder: false,
     },
   ],
-  cvPath:
-    "https://drive.google.com/file/d/1qFZlWwy0xJ_SpRkwgbYlXWk92uu6ifen/view?usp=sharing",
+  cvPath: "/resume-alan-man.pdf",
   cvAvailable: true,
 };

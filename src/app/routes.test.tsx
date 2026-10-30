@@ -17,15 +17,14 @@ vi.mock("next/navigation", () => ({
   redirect: redirectMock,
 }));
 
-const externalCvUrl =
-  "https://drive.google.com/file/d/1qFZlWwy0xJ_SpRkwgbYlXWk92uu6ifen/view?usp=sharing";
+const cvUrl = "/resume-alan-man.pdf";
 
 describe("portfolio routes", () => {
   it("uses the portfolio name as the homepage browser-tab title", () => {
     expect(homeMetadata.title).toEqual({ absolute: "Alan Man's Portfolio" });
   });
 
-  it("gives visitors direct paths to contact and the external CV", () => {
+  it("gives visitors direct paths to contact and the CV", () => {
     render(<HomePage />);
 
     expect(
@@ -38,7 +37,7 @@ describe("portfolio routes", () => {
     );
     expect(screen.getByRole("link", { name: "View CV" })).toHaveAttribute(
       "href",
-      externalCvUrl,
+      cvUrl,
     );
     expect(screen.getByRole("link", { name: "View CV" })).toHaveAttribute(
       "target",
@@ -78,12 +77,7 @@ describe("portfolio routes", () => {
       }
     }
 
-    for (const tool of [
-      "Claude Code",
-      "ChatGPT",
-      "Gemini",
-      "GitHub Copilot",
-    ]) {
+    for (const tool of ["Claude Code", "ChatGPT", "Gemini", "GitHub Copilot"]) {
       expect(screen.getByText(tool)).toBeInTheDocument();
     }
   });
@@ -91,9 +85,15 @@ describe("portfolio routes", () => {
   it("keeps experience content off the personal-page template", () => {
     render(<HomePage />);
 
-    expect(screen.queryByRole("heading", { name: "Work experience" })).toBeNull();
-    expect(screen.queryByRole("heading", { name: "System Developer" })).toBeNull();
-    expect(screen.queryByRole("heading", { name: "Analyst Programmer" })).toBeNull();
+    expect(
+      screen.queryByRole("heading", { name: "Work experience" }),
+    ).toBeNull();
+    expect(
+      screen.queryByRole("heading", { name: "System Developer" }),
+    ).toBeNull();
+    expect(
+      screen.queryByRole("heading", { name: "Analyst Programmer" }),
+    ).toBeNull();
   });
 
   it("shows at least three structured project cards", () => {
@@ -136,7 +136,7 @@ describe("portfolio routes", () => {
 
     const cvLink = screen.getByRole("link", { name: "View CV" });
 
-    expect(cvLink).toHaveAttribute("href", externalCvUrl);
+    expect(cvLink).toHaveAttribute("href", cvUrl);
     expect(cvLink).toHaveAttribute("target", "_blank");
     expect(screen.queryByRole("link", { name: "Download CV" })).toBeNull();
     expect(screen.queryByText(/coming soon/i)).toBeNull();
