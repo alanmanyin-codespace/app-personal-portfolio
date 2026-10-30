@@ -33,6 +33,6 @@ export const siteConfig: SiteConfig = {
     },
   ],
   cvPath:
-    "https://drive.google.com/file/d/1n2YpgSzOHSykcdsZBV8Aj_wWznlcOlDX/view?usp=drive_link",
+    "https://drive.google.com/file/d/1qFZlWwy0xJ_SpRkwgbYlXWk92uu6ifen/view?usp=sharing",
   cvAvailable: true,
 };

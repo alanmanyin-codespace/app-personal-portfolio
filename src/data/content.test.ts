@@ -54,7 +54,7 @@ describe("portfolio content", () => {
 
   it("uses the owner-approved external CV", () => {
     expect(siteConfig.cvPath).toBe(
-      "https://drive.google.com/file/d/1n2YpgSzOHSykcdsZBV8Aj_wWznlcOlDX/view?usp=drive_link",
+      "https://drive.google.com/file/d/1qFZlWwy0xJ_SpRkwgbYlXWk92uu6ifen/view?usp=sharing",
     );
     expect(siteConfig.cvAvailable).toBe(true);
   });
