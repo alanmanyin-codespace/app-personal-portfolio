@@ -58,9 +58,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             View on GitHub
             <span className="sr-only"> (opens in a new tab)</span>
           </Link>
-        ) : (
+        ) : project.isPlaceholder ? (
           <span className="text-ink-faint">GitHub link to be added</span>
-        )}
+        ) : null}
         {project.liveDemoUrl ? (
           <Link
             href={project.liveDemoUrl}
@@ -71,9 +71,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             View live demo
             <span className="sr-only"> (opens in a new tab)</span>
           </Link>
-        ) : (
+        ) : project.isPlaceholder ? (
           <span className="text-ink-faint">Live demo to be added</span>
-        )}
+        ) : null}
       </div>
 
       {project.isPlaceholder ? (

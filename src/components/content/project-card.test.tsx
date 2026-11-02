@@ -22,6 +22,25 @@ describe("ProjectCard", () => {
     expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 
+  it("stays quiet about a missing repo on a real project", () => {
+    render(
+      <ProjectCard
+        project={{
+          ...placeholderProject,
+          isPlaceholder: false,
+          githubUrl: undefined,
+          liveDemoUrl: "https://example.com/",
+        }}
+      />,
+    );
+
+    expect(screen.queryByText("GitHub link to be added")).toBeNull();
+    expect(screen.queryByText("Live demo to be added")).toBeNull();
+    expect(
+      screen.getByRole("link", { name: /View live demo/ }),
+    ).toBeInTheDocument();
+  });
+
   it("links only to approved, complete case studies", () => {
     const reviewed: Project = {
       ...placeholderProject,
@@ -37,10 +56,9 @@ describe("ProjectCard", () => {
 
     const { rerender } = render(<ProjectCard project={reviewed} />);
 
-    expect(screen.getByRole("link", { name: "Read case study" })).toHaveAttribute(
-      "href",
-      "/projects/sample-project",
-    );
+    expect(
+      screen.getByRole("link", { name: "Read case study" }),
+    ).toHaveAttribute("href", "/projects/sample-project");
 
     rerender(<ProjectCard project={{ ...reviewed, isPlaceholder: true }} />);
     expect(screen.queryByRole("link", { name: "Read case study" })).toBeNull();
