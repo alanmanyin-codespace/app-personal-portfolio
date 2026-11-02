@@ -29,10 +29,13 @@ describe("Header", () => {
     vi.unstubAllGlobals();
   });
 
-  it("keeps hidden template routes out of assistive navigation", () => {
+  it("marks Projects as the current page and keeps Experience hidden", () => {
     render(<Header pathnameOverride="/projects" />);
 
-    expect(screen.queryByRole("link", { name: "Projects" })).toBeNull();
+    expect(screen.getByRole("link", { name: "Projects" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
     expect(screen.queryByRole("link", { name: "Experience" })).toBeNull();
     expect(screen.getByRole("link", { name: "About" })).not.toHaveAttribute(
       "aria-current",
