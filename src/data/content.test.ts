@@ -5,6 +5,15 @@ import { education } from "@/data/education";
 import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
 
+// Engagements are published anonymously: the site never names an employer.
+// This allowlist is the gate. Adding a label here is a deliberate choice, and
+// anything else -- a real company name included -- fails the test. Stated as an
+// allowlist on purpose, so no employer name has to be written down to be banned.
+const approvedEngagementLabels = [
+  "Enterprise case-management and AI workflow platform",
+  "Digital insurance application platform",
+];
+
 describe("portfolio content", () => {
   it("publishes at least three uniquely addressable real projects", () => {
     expect(projects.length).toBeGreaterThanOrEqual(3);
@@ -33,9 +42,7 @@ describe("portfolio content", () => {
       expect(item.achievements.length).toBeGreaterThan(0);
       expect(item.technologies.length).toBeGreaterThan(0);
       expect(item.isPlaceholder).toBe(false);
-      expect(item.engagement).not.toMatch(
-        /Arch-Partnership|Eastech System Limited/i,
-      );
+      expect(approvedEngagementLabels).toContain(item.engagement);
     }
   });
 

@@ -127,8 +127,13 @@ describe("portfolio routes", () => {
         name: "Enterprise case-management and AI workflow platform",
       }),
     ).toBeInTheDocument();
-    expect(screen.queryByText(/Arch-Partnership/i)).toBeNull();
-    expect(screen.queryByText(/Eastech System Limited/i)).toBeNull();
+    // Assert the shape of an employer name rather than any specific one, so
+    // this file never has to contain the names it is meant to keep off the page.
+    expect(
+      screen.queryByText(
+        /\b(?:Ltd|Limited|Inc|LLC|LLP|Corp|Corporation|Partnership|GmbH|Pte)\b/i,
+      ),
+    ).toBeNull();
   });
 
   it("opens the CV served from the site itself", () => {
