@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         title="Selected software development work"
-        description="A reusable project gallery prepared for verified case studies, source repositories, and live demonstrations."
+        description="Independent projects I have designed, built, and deployed, each with a live demonstration you can open."
       />
       <Container className="py-16 lg:py-20">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

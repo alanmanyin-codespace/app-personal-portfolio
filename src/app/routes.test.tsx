@@ -131,7 +131,7 @@ describe("portfolio routes", () => {
     expect(screen.queryByText(/Eastech System Limited/i)).toBeNull();
   });
 
-  it("opens the externally hosted public CV", () => {
+  it("opens the CV served from the site itself", () => {
     render(<CvPage />);
 
     const cvLink = screen.getByRole("link", { name: "View CV" });

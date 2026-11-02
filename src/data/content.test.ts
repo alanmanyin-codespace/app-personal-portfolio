@@ -6,12 +6,21 @@ import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
 
 describe("portfolio content", () => {
-  it("provides at least three uniquely addressable placeholder projects", () => {
+  it("publishes at least three uniquely addressable real projects", () => {
     expect(projects.length).toBeGreaterThanOrEqual(3);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(
       projects.length,
     );
-    expect(projects.every((project) => project.isPlaceholder)).toBe(true);
+    expect(projects.some((project) => project.isPlaceholder)).toBe(false);
+  });
+
+  it("gives every published project a description and a live demo", () => {
+    for (const project of projects) {
+      expect(project.title).not.toBe("");
+      expect(project.description).not.toBe("");
+      expect(project.technologies.length).toBeGreaterThan(0);
+      expect(project.liveDemoUrl).toMatch(/^https:\/\//);
+    }
   });
 
   it("provides two complete anonymous professional engagements", () => {
