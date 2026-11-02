@@ -16,6 +16,10 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/alanmanyin-codespace/app-platewise",
     liveDemoUrl: "https://app-platewise.vercel.app/",
+    thumbnail: {
+      src: "https://image.thum.io/get/width/1200/crop/675/https://app-platewise.vercel.app/",
+      alt: "The PlateWise home page, showing the weekly meal planner and recipe browser",
+    },
     featured: true,
     isPlaceholder: false,
   },
@@ -32,6 +36,10 @@ export const projects: Project[] = [
       "Google Reviews",
     ],
     liveDemoUrl: "https://app-poetry-of-ear.vercel.app/",
+    thumbnail: {
+      src: "https://image.thum.io/get/width/1200/crop/675/https://app-poetry-of-ear.vercel.app/",
+      alt: "The Poetry of Ear home page, showing the studio name over a treatment photograph",
+    },
     featured: true,
     isPlaceholder: false,
   },
@@ -48,6 +56,10 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveDemoUrl: "https://solomon-ai-studio.vercel.app/",
+    thumbnail: {
+      src: "https://image.thum.io/get/width/1200/crop/675/https://solomon-ai-studio.vercel.app/",
+      alt: "The Solomon AI Studio home page, showing AI-illustrated comic artwork",
+    },
     featured: true,
     isPlaceholder: false,
   },

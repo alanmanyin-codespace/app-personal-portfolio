@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { PlaceholderNotice } from "@/components/ui/placeholder-notice";
@@ -12,6 +13,17 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="glass glass-hover flex h-full flex-col rounded-2xl p-6">
+      {project.thumbnail ? (
+        <Image
+          src={project.thumbnail.src}
+          alt={project.thumbnail.alt}
+          width={1200}
+          height={675}
+          sizes="(min-width: 1280px) 24rem, (min-width: 768px) 45vw, 90vw"
+          className="mb-5 aspect-video w-full rounded-xl border border-azure-300/15 object-cover object-top"
+        />
+      ) : null}
+
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-xl font-bold tracking-tight text-ink">
           {project.title}

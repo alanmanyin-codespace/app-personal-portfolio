@@ -22,6 +22,30 @@ describe("ProjectCard", () => {
     expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 
+  it("renders a project thumbnail when one is configured", () => {
+    render(
+      <ProjectCard
+        project={{
+          ...placeholderProject,
+          thumbnail: {
+            src: "https://image.thum.io/get/width/1200/crop/675/https://example.com/",
+            alt: "The example home page",
+          },
+        }}
+      />,
+    );
+
+    expect(
+      screen.getByRole("img", { name: "The example home page" }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders no image when a project has no thumbnail", () => {
+    render(<ProjectCard project={placeholderProject} />);
+
+    expect(screen.queryByRole("img")).toBeNull();
+  });
+
   it("stays quiet about a missing repo on a real project", () => {
     render(
       <ProjectCard

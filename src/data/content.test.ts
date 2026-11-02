@@ -23,6 +23,13 @@ describe("portfolio content", () => {
     expect(projects.some((project) => project.isPlaceholder)).toBe(false);
   });
 
+  it("gives every published project a captioned thumbnail", () => {
+    for (const project of projects) {
+      expect(project.thumbnail?.src).toMatch(/^https:\/\//);
+      expect(project.thumbnail?.alt).not.toBe("");
+    }
+  });
+
   it("gives every published project a description and a live demo", () => {
     for (const project of projects) {
       expect(project.title).not.toBe("");

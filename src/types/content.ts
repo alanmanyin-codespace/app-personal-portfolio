@@ -32,7 +32,9 @@ export interface NavigationItem {
   href: string;
 }
 
-export type ProjectClassification = "professional-case-study" | "independent-demo";
+export type ProjectClassification =
+  | "professional-case-study"
+  | "independent-demo";
 
 export interface ProjectCaseStudy {
   role: string;
@@ -57,6 +59,10 @@ export interface Project {
   isPlaceholder: boolean;
   classification?: ProjectClassification;
   caseStudy?: ProjectCaseStudy;
+  thumbnail?: {
+    src: string;
+    alt: string;
+  };
 }
 
 export interface Experience {
