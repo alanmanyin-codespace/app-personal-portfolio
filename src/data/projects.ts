@@ -63,4 +63,19 @@ export const projects: Project[] = [
     featured: true,
     isPlaceholder: false,
   },
+  {
+    slug: "roadready-7",
+    title: "RoadReady 7",
+    description:
+      "A study companion for Alberta's Class 7 learner's knowledge test. Original multiple-choice questions on road signs, rules of the road and safe driving, in the same format and pass mark as the real test, with quiz results saved in the browser so learners can pick up where they left off.",
+    technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    githubUrl: "https://github.com/alanmanyin-codespace/app-class-7-ready",
+    liveDemoUrl: "https://class-7-ready.vercel.app/",
+    thumbnail: {
+      src: "https://image.thum.io/get/width/1200/crop/675/https://class-7-ready.vercel.app/",
+      alt: "The RoadReady 7 home page, inviting learners to start an Alberta Class 7 practice test",
+    },
+    featured: true,
+    isPlaceholder: false,
+  },
 ];
