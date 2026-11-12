@@ -14,8 +14,12 @@ const variants = {
     "bg-gradient-to-r from-azure-500 to-cyan-300 text-night-950 shadow-[0_10px_30px_-10px_rgba(46,107,255,0.8)] hover:shadow-[0_14px_38px_-10px_rgba(103,232,249,0.8)] hover:-translate-y-0.5",
   secondary:
     "border border-azure-300/25 bg-night-800/50 text-ink backdrop-blur-sm hover:border-azure-300/60 hover:bg-night-800/80",
-  // Solid brand buttons.
-  whatsapp: "bg-[#25d366] text-white hover:bg-[#1ebe5b] hover:-translate-y-0.5",
+  // Solid navy, matching the Tech Stack chips.
+  solid:
+    "border border-azure-300/30 bg-night-700 text-ink hover:border-azure-300/60 hover:-translate-y-0.5",
+  // Solid brand buttons. WhatsApp uses a deeper green than its bright brand
+  // colour so it sits calmly on the dark theme.
+  whatsapp: "bg-[#1d9e4f] text-white hover:bg-[#188a44] hover:-translate-y-0.5",
   linkedin: "bg-[#0a66c2] text-white hover:bg-[#004182] hover:-translate-y-0.5",
 };
 

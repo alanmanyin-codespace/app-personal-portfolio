@@ -133,7 +133,7 @@ export default function HomePage() {
                 <div className="mt-8 flex flex-wrap gap-2">
                   <CvWindowButton
                     href={siteConfig.cvPath}
-                    variant="secondary"
+                    variant="solid"
                     size="compact"
                   >
                     <DocumentText className="h-3.5 w-3.5" />

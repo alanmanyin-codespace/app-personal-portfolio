@@ -35,7 +35,7 @@ export function HomeSkillGroups({ groups }: HomeSkillGroupsProps) {
               {group.skills.map((skill) => (
                 <li
                   key={skill}
-                  className="flex items-center gap-2 rounded-full border border-azure-300/25 bg-night-800/80 px-3.5 py-2 text-xs font-semibold text-azure-200"
+                  className="flex items-center gap-2 rounded-full border border-azure-300/30 bg-night-700 px-3.5 py-2 text-xs font-semibold text-azure-200"
                 >
                   <SkillMark skill={skill} className="h-4 w-4 shrink-0" />
                   <span>{skill}</span>
