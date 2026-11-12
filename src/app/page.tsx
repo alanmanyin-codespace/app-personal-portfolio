@@ -36,8 +36,9 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.55fr)_minmax(18rem,0.7fr)] lg:items-start lg:gap-14">
             <div>
               <h1 className="max-w-4xl text-5xl font-bold tracking-[-0.04em] text-ink text-balance sm:text-6xl lg:text-7xl">
-                I build <span className="text-azure-400">enterprise systems</span>{" "}
-                end to end.
+                I build{" "}
+                <span className="text-azure-400">enterprise systems</span> end
+                to end.
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-ink-muted">
                 {profile.title}. Based in Calgary, Alberta.
@@ -65,14 +66,16 @@ export default function HomePage() {
 
             <div className="mx-auto w-full max-w-md lg:sticky lg:top-28">
               <div className="overflow-hidden rounded-2xl border border-azure-300/35 bg-night-900/75 p-2 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.85)]">
-                <Image
-                  src="/images/alan-man-profile.jpg"
-                  alt={`Portrait of ${siteConfig.name}`}
-                  width={720}
-                  height={900}
-                  priority
-                  className="aspect-[4/5] h-auto w-full rounded-xl object-cover"
-                />
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src="/images/alan-man-profile.jpg"
+                    alt={`Portrait of ${siteConfig.name}`}
+                    width={720}
+                    height={900}
+                    priority
+                    className="portrait-zoom aspect-[4/5] h-auto w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>

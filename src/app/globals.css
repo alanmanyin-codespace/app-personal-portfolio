@@ -148,6 +148,22 @@ button {
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Slow, slight zoom in and out on the hero portrait */
+@keyframes portrait-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.portrait-zoom {
+  animation: portrait-zoom 7s ease-in-out infinite alternate;
+  transform-origin: 50% 35%;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -160,5 +176,8 @@ button {
   .rise {
     opacity: 1;
     transform: none;
+  }
+  .portrait-zoom {
+    animation: none;
   }
 }
