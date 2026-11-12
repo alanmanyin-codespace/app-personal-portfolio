@@ -35,9 +35,9 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Google Reviews",
     ],
-    liveDemoUrl: "https://app-poetry-of-ear.vercel.app/",
+    liveDemoUrl: "https://poetry-of-ear.vercel.app/",
     thumbnail: {
-      src: "https://image.thum.io/get/width/1200/crop/675/https://app-poetry-of-ear.vercel.app/",
+      src: "https://image.thum.io/get/width/1200/crop/675/https://poetry-of-ear.vercel.app/",
       alt: "The Poetry of Ear home page, showing the studio name over a treatment photograph",
     },
     featured: true,
