@@ -16,13 +16,20 @@ export default function ProjectsPage() {
     <>
       <PageHeader
         eyebrow="Projects"
-        title="Selected software development work"
-        description="Independent projects I have designed, built, and deployed, each with a live demonstration you can open."
+        title="Projects and demos"
+        description="A mix of live projects and demos I have designed, built, and deployed, each one open for you to try."
       />
-      <Container className="py-16 lg:py-20">
+      <Container className="pt-8 pb-16 lg:pt-10 lg:pb-20">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+          {projects.map((project, index) => (
+            <div
+              key={project.slug}
+              className="rise-fast"
+              // One after another, quickly, as the header settles.
+              style={{ animationDelay: `${300 + index * 120}ms` }}
+            >
+              <ProjectCard project={project} />
+            </div>
           ))}
         </div>
       </Container>

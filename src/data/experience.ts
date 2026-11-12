@@ -39,7 +39,7 @@ export const experience: Experience[] = [
       "Integrated third-party APIs for customer and policy data and application update or resubmission decisions.",
       "Designed REST APIs and delivered features across React, Angular, React Native, Java Spring Boot, and NestJS applications.",
       "Refined requirements with project and QA colleagues, identified edge cases, defined acceptance criteria, and resolved delivery defects.",
-      "Supported CI/CD deployment, performance testing, and application optimization with Jenkins and Azure Pipelines.",
+      "Supported CI/CD deployment, performance testing, and application optimization with Jenkins and Azure DevOps.",
     ],
     technologies: [
       "React",
@@ -52,7 +52,7 @@ export const experience: Experience[] = [
       "DB2",
       "MongoDB",
       "Jenkins",
-      "Azure Pipelines",
+      "Azure DevOps",
     ],
     isPlaceholder: false,
   },

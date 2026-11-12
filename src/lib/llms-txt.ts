@@ -30,9 +30,9 @@ export function buildLlmsTxt(): string {
     "## Pages",
     "",
     `- [Home](${absolute("/")}): Introduction, career journey, skills, and AI tools`,
-    `- [Projects](${absolute("/projects")}): Selected projects with live demos`,
+    `- [Projects](${absolute("/projects")}): Live projects and demos`,
     `- [Experience](${absolute("/experience")}): Professional engagements, described by product rather than employer name`,
-    `- [CV](${absolute("/cv")}): The complete professional record`,
+    `- [CV](${absolute("/cv")}): Full résumé with work history, education, and skills`,
     `- [Contact](${absolute("/contact")}): Ways to get in touch`,
     "",
     "## Projects",
@@ -77,7 +77,7 @@ export function buildLlmsTxt(): string {
 
   if (siteConfig.cvAvailable) {
     lines.push(
-      `- [Resume (PDF)](${absolute(siteConfig.cvPath)}): Downloadable resume`,
+      `- [Resume](${absolute(siteConfig.cvPath)}): Full resume as a shared Google Doc`,
     );
   }
   lines.push(`- [Sitemap](${absolute("/sitemap.xml")})`);

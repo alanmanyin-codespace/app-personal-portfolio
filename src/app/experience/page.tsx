@@ -19,7 +19,7 @@ export default function ExperiencePage() {
         title="Systems I have helped deliver"
         description="Selected professional engagements are presented by the products, responsibilities, and technologies involved rather than by employer name."
       />
-      <Container className="py-16 lg:py-20">
+      <Container className="pt-8 pb-16 lg:pt-10 lg:pb-20">
         <div className="mx-auto max-w-4xl space-y-12">
           {experience.map((item) => (
             <ExperienceItem

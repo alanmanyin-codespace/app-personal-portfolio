@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { CodeBracket } from "@/components/visual/icons";
 import { navigation } from "@/data/navigation";
+import { handleNavClick } from "@/lib/same-page-hash";
 
 interface HeaderProps {
   pathnameOverride?: string;
@@ -15,25 +16,25 @@ interface HeaderProps {
 
 export function Header({ pathnameOverride }: HeaderProps) {
   const currentPathname = usePathname();
+  const router = useRouter();
   const pathname = pathnameOverride ?? currentPathname;
-  const [isJourneyVisible, setIsJourneyVisible] = useState(false);
-  const activeHref =
-    pathname === "/" && isJourneyVisible ? "/#my-journey" : pathname;
+  const [isStackVisible, setIsStackVisible] = useState(false);
+  const activeHref = pathname === "/" && isStackVisible ? "/#stack" : pathname;
 
   useEffect(() => {
     if (pathname !== "/") {
       return;
     }
 
-    const journeySection = document.getElementById("my-journey");
+    const stackSection = document.getElementById("stack");
 
-    if (!journeySection) {
+    if (!stackSection) {
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsJourneyVisible(
+        setIsStackVisible(
           entry.isIntersecting || entry.boundingClientRect.top <= 64,
         );
       },
@@ -43,7 +44,7 @@ export function Header({ pathnameOverride }: HeaderProps) {
       },
     );
 
-    observer.observe(journeySection);
+    observer.observe(stackSection);
 
     return () => observer.disconnect();
   }, [pathname]);
@@ -53,6 +54,7 @@ export function Header({ pathnameOverride }: HeaderProps) {
       <Container className="flex min-h-16 items-center justify-between gap-8">
         <Link
           href="/"
+          onClick={(event) => handleNavClick(event, "/", router)}
           className="flex items-center gap-2.5 rounded-md text-base font-semibold tracking-tight text-ink hover:text-azure-200"
         >
           <span className="grid h-8 w-8 place-items-center rounded-lg border border-azure-300/30 bg-night-800/70 text-azure-300">
@@ -70,6 +72,9 @@ export function Header({ pathnameOverride }: HeaderProps) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={(event) =>
+                      handleNavClick(event, item.href, router)
+                    }
                     aria-current={isActive ? "page" : undefined}
                     className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       isActive

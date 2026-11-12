@@ -75,8 +75,10 @@ describe("portfolio content", () => {
     );
   });
 
-  it("serves the CV from the site's own static assets", () => {
-    expect(siteConfig.cvPath).toBe("/resume-alan-man.pdf");
+  it("links the CV to the shared Google Doc", () => {
+    expect(siteConfig.cvPath).toBe(
+      "https://docs.google.com/document/d/1fsfFOsj-sbPBdbvaE4XIvoXVdEsfuq-RuR2Y6DocBRE/edit?usp=sharing",
+    );
     expect(siteConfig.cvAvailable).toBe(true);
   });
 });

@@ -31,7 +31,7 @@ const skillDepths: SkillDepth[] = [
     level: "Strong experience",
     filledSegments: 3,
     skills:
-      "Azure App Service, Azure Functions, Key Vault, Jenkins, Azure Pipelines, CI/CD",
+      "Azure App Service, Azure Functions, Key Vault, Jenkins, Azure DevOps, CI/CD",
   },
   {
     label: "Mobile application delivery",

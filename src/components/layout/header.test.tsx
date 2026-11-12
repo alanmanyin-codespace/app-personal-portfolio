@@ -3,6 +3,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { Header } from "@/components/layout/header";
 
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/",
+  useRouter: () => ({ push: vi.fn() }),
+}));
+
 describe("Header", () => {
   let intersectionCallback: IntersectionObserverCallback | undefined;
 
@@ -37,7 +42,7 @@ describe("Header", () => {
       "page",
     );
     expect(screen.queryByRole("link", { name: "Experience" })).toBeNull();
-    expect(screen.getByRole("link", { name: "About" })).not.toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Stack" })).not.toHaveAttribute(
       "aria-current",
     );
   });
@@ -50,10 +55,10 @@ describe("Header", () => {
     ).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("keeps About active from My journey through the rest of the homepage", () => {
-    const journeySection = document.createElement("section");
-    journeySection.id = "my-journey";
-    document.body.appendChild(journeySection);
+  it("keeps Stack active from the tech stack through the rest of the homepage", () => {
+    const stackSection = document.createElement("section");
+    stackSection.id = "stack";
+    document.body.appendChild(stackSection);
 
     render(<Header pathnameOverride="/" />);
 
@@ -66,7 +71,7 @@ describe("Header", () => {
       );
     });
 
-    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Stack" })).toHaveAttribute(
       "aria-current",
       "page",
     );
@@ -86,11 +91,11 @@ describe("Header", () => {
       );
     });
 
-    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Stack" })).toHaveAttribute(
       "aria-current",
       "page",
     );
 
-    journeySection.remove();
+    stackSection.remove();
   });
 });

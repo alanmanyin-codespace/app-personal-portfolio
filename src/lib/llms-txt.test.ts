@@ -22,7 +22,7 @@ describe("llms.txt", () => {
 
   it("uses absolute production URLs for site pages", () => {
     expect(text).toContain(`(${siteConfig.url}/projects)`);
-    expect(text).toContain(`(${siteConfig.url}${siteConfig.cvPath})`);
+    expect(text).toContain(`(${siteConfig.cvPath})`);
     expect(text).not.toMatch(/\]\(\//);
   });
 });

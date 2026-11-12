@@ -17,7 +17,8 @@ vi.mock("next/navigation", () => ({
   redirect: redirectMock,
 }));
 
-const cvUrl = "/resume-alan-man.pdf";
+const cvUrl =
+  "https://docs.google.com/document/d/1fsfFOsj-sbPBdbvaE4XIvoXVdEsfuq-RuR2Y6DocBRE/edit?usp=sharing";
 
 describe("portfolio routes", () => {
   it("uses the portfolio name as the homepage browser-tab title", () => {
@@ -31,10 +32,22 @@ describe("portfolio routes", () => {
       screen.getByRole("img", { name: "Portrait of Alan Man" }),
     ).toHaveAttribute("src", expect.stringContaining("alan-man-profile.jpg"));
     expect(screen.queryByRole("link", { name: "View experience" })).toBeNull();
-    expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
+    for (const link of screen.getAllByRole("link", { name: "WhatsApp" })) {
+      expect(link).toHaveAttribute("href", "https://wa.me/85266940106");
+    }
+    for (const link of screen.getAllByRole("link", { name: "LinkedIn" })) {
+      expect(link).toHaveAttribute(
+        "href",
+        "https://www.linkedin.com/in/alanmanyin919",
+      );
+    }
+    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute(
       "href",
-      "/contact",
+      "mailto:alanmanyin919@outlook.com",
     );
+    expect(
+      screen.getByRole("heading", { name: "Contact Me" }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "View CV" })).toHaveAttribute(
       "href",
       cvUrl,
@@ -56,7 +69,7 @@ describe("portfolio routes", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("shows the complete professional skill groups and AI tools in the hero", () => {
+  it("shows the complete professional skill groups and AI tools on the homepage", () => {
     render(<HomePage />);
 
     for (const groupName of [
@@ -73,7 +86,7 @@ describe("portfolio routes", () => {
       expect(group).not.toBeNull();
 
       for (const skill of group!.querySelectorAll("li")) {
-        expect(skill.querySelector("svg")).not.toBeNull();
+        expect(skill.querySelector("svg, img")).not.toBeNull();
       }
     }
 
@@ -102,15 +115,19 @@ describe("portfolio routes", () => {
     expect(screen.getAllByRole("article").length).toBeGreaterThanOrEqual(3);
   });
 
-  it("links About to the My journey section on the homepage", () => {
+  it("links Stack to the tech stack below My journey on the homepage", () => {
     render(<HomePage />);
 
-    expect(navigation.find((item) => item.label === "About")?.href).toBe(
-      "/#my-journey",
+    expect(navigation.find((item) => item.label === "Stack")?.href).toBe(
+      "/#stack",
     );
     expect(
-      screen.getByRole("heading", { name: "My journey" }).closest("section"),
-    ).toHaveAttribute("id", "my-journey");
+      screen.getByRole("heading", { name: "Frontend" }).closest("#stack"),
+    ).not.toBeNull();
+    expect(screen.getByRole("region", { name: "My journey" })).toHaveAttribute(
+      "id",
+      "my-journey",
+    );
   });
 
   it("redirects the legacy About page to My journey", () => {
@@ -156,6 +173,9 @@ describe("portfolio routes", () => {
         name: "alanmanyin919@outlook.com",
       }),
     ).toHaveAttribute("href", "mailto:alanmanyin919@outlook.com");
+    expect(
+      within(contactList).getByRole("link", { name: "+852 6694 0106" }),
+    ).toHaveAttribute("href", "https://wa.me/85266940106");
     expect(
       within(contactList).getByRole("link", { name: "alanmanyin-codespace" }),
     ).toHaveAttribute("href", "https://github.com/alanmanyin-codespace");

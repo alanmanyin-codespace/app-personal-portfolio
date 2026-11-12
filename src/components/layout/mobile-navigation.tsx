@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { navigation } from "@/data/navigation";
+import { handleNavClick } from "@/lib/same-page-hash";
 
 interface MobileNavigationProps {
   activeHref: string;
@@ -11,6 +13,7 @@ interface MobileNavigationProps {
 
 export function MobileNavigation({ activeHref }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="md:hidden">
@@ -47,7 +50,10 @@ export function MobileNavigation({ activeHref }: MobileNavigationProps) {
                         ? "bg-azure-500/15 text-azure-200"
                         : "text-ink-muted hover:bg-night-800/70 hover:text-ink"
                     }`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(event) => {
+                      handleNavClick(event, item.href, router);
+                      setIsOpen(false);
+                    }}
                   >
                     {item.label}
                   </Link>

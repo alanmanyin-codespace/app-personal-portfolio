@@ -18,6 +18,12 @@ export const siteConfig: SiteConfig = {
     displayValue: "+1 825 964 5554",
     isPlaceholder: false,
   },
+  whatsapp: {
+    label: "WhatsApp",
+    href: "https://wa.me/85266940106",
+    displayValue: "+852 6694 0106",
+    isPlaceholder: false,
+  },
   socials: [
     {
       label: "GitHub",
@@ -32,6 +38,7 @@ export const siteConfig: SiteConfig = {
       isPlaceholder: false,
     },
   ],
-  cvPath: "/resume-alan-man.pdf",
+  cvPath:
+    "https://docs.google.com/document/d/1fsfFOsj-sbPBdbvaE4XIvoXVdEsfuq-RuR2Y6DocBRE/edit?usp=sharing",
   cvAvailable: true,
 };

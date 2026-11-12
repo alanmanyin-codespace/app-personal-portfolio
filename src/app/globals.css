@@ -148,20 +148,74 @@ button {
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Slow, slight zoom in and out on the hero portrait */
-@keyframes portrait-zoom {
-  from {
-    transform: scale(1);
-  }
+/* Quicker variant for staggered lists, e.g. project cards. */
+.rise-fast {
+  animation: rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Off-screen content waiting to rise in (see components/ui/reveal-on-scroll). */
+.reveal-waiting {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Enlarge the hero portrait card when hovered */
+.portrait-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.portrait-card:hover {
+  transform: scale(1.06);
+}
+
+/* Typing animation for page titles (see components/ui/typing-text.tsx).
+   Each letter appears on its own delay; a thin cursor rides along on the
+   letter being typed, then blinks a few times at the end and disappears. */
+@keyframes type-in {
   to {
-    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+@keyframes type-cursor {
+  from,
+  to {
+    opacity: 1;
+  }
+}
+@keyframes type-caret-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 
-.portrait-zoom {
-  animation: portrait-zoom 4s ease-in-out infinite alternate;
-  transform-origin: 50% 35%;
-  will-change: transform;
+.type-char {
+  position: relative;
+  opacity: 0;
+  animation: type-in 1ms linear forwards;
+}
+.type-char::after {
+  content: "";
+  position: absolute;
+  top: 0.12em;
+  right: -0.07em;
+  bottom: 0.08em;
+  width: 0.06em;
+  background: var(--color-azure-400);
+  opacity: 0;
+  animation: type-cursor var(--type-step) steps(1);
+  animation-delay: inherit;
+}
+.type-caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.85em;
+  margin-left: 0.04em;
+  vertical-align: -0.06em;
+  background: var(--color-azure-400);
+  opacity: 0;
+  animation: type-caret-blink 0.9s steps(1) 4;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -173,11 +227,22 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .rise {
+  .rise,
+  .rise-fast,
+  .reveal-waiting {
     opacity: 1;
     transform: none;
-  }
-  .portrait-zoom {
     animation: none;
+  }
+  .portrait-card:hover {
+    transform: none;
+  }
+  .type-char {
+    opacity: 1;
+    animation: none;
+  }
+  .type-char::after,
+  .type-caret {
+    display: none;
   }
 }

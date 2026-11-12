@@ -12,6 +12,7 @@ export interface SiteConfig {
   url: string;
   email: SocialLink;
   phone?: SocialLink;
+  whatsapp: SocialLink;
   socials: SocialLink[];
   cvPath: string;
   cvAvailable: boolean;

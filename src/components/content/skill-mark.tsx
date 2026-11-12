@@ -1,11 +1,26 @@
-import type { SVGProps } from "react";
+import Image from "next/image";
+import type { ComponentType, SVGProps } from "react";
 
 import {
-  AzureMark,
-  DatabaseMark,
+  AngularMark,
+  AzureDevOpsMark,
+  CSS3Mark,
+  ChatGPTMark,
+  ClaudeMark,
+  CopilotMark,
+  Db2Mark,
+  FastAPIMark,
+  GeminiMark,
+  HTML5Mark,
+  JavaMark,
+  JavaScriptMark,
+  MariaDBMark,
+  MaterialUIMark,
+  MongoDBMark,
+  NestJSMark,
   PythonMark,
   ReactMark,
-  ShieldMark,
+  SpringBootMark,
   TypeScriptMark,
 } from "@/components/visual/icons";
 
@@ -20,39 +35,46 @@ interface Monogram {
 }
 
 const monograms: Record<string, Monogram> = {
-  JavaScript: { text: "JS", background: "#f7df1e", foreground: "#111827" },
-  Angular: { text: "A", background: "#dd0031" },
-  "Material UI": { text: "M", background: "#007fff" },
-  HTML: { text: "<>" , background: "#e34f26" },
-  CSS: { text: "#", background: "#1572b6" },
-  Java: { text: "J", background: "#e76f00" },
-  FastAPI: { text: "F", background: "#009688" },
-  "Spring Boot": { text: "S", background: "#6db33f" },
-  NestJS: { text: "N", background: "#e0234e" },
   "REST APIs": { text: "{}", background: "#0f766e" },
-  "Microsoft Graph API": { text: "G", background: "#5c2d91" },
-  Jenkins: { text: "J", background: "#d33833" },
-  "Azure Pipelines": { text: "P", background: "#2563eb" },
-  "Claude Code": { text: "C", background: "#d97757" },
-  ChatGPT: { text: "AI", background: "#10a37f" },
-  Gemini: { text: "G", background: "#4f73ff" },
-  "GitHub Copilot": { text: "Co", background: "#6e40c9" },
 };
 
-const databaseSkills = new Set([
-  "Cosmos DB",
-  "Azure SQL",
-  "DB2",
-  "MongoDB",
-  "MariaDB",
-]);
+const brandMarks: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  React: ReactMark,
+  "React Native": ReactMark,
+  TypeScript: TypeScriptMark,
+  JavaScript: JavaScriptMark,
+  Python: PythonMark,
+  "Material UI": MaterialUIMark,
+  "Azure DevOps": AzureDevOpsMark,
+  FastAPI: FastAPIMark,
+  Angular: AngularMark,
+  "Claude Code": ClaudeMark,
+  ChatGPT: ChatGPTMark,
+  Gemini: GeminiMark,
+  "GitHub Copilot": CopilotMark,
+  Java: JavaMark,
+  "Spring Boot": SpringBootMark,
+  NestJS: NestJSMark,
+  HTML: HTML5Mark,
+  CSS: CSS3Mark,
+  MongoDB: MongoDBMark,
+  MariaDB: MariaDBMark,
+  DB2: Db2Mark,
+};
 
-const azureSkills = new Set(["Azure App Service", "Azure Functions"]);
-const identitySkills = new Set([
-  "Microsoft Entra ID",
-  "Managed Identity",
-  "Key Vault",
-]);
+// Multi-colour icons (Microsoft's Azure service icons, Jenkins), served as
+// files so their gradients and ids never clash on one page.
+const imageMarks: Record<string, string> = {
+  "Key Vault": "/images/skills/key-vault.svg",
+  "Managed Identity": "/images/skills/managed-identity.svg",
+  "Azure SQL": "/images/skills/azure-sql.svg",
+  "Azure Functions": "/images/skills/azure-functions.svg",
+  "Azure App Service": "/images/skills/azure-app-service.svg",
+  "Microsoft Graph API": "/images/skills/microsoft-graph.svg",
+  "Microsoft Entra ID": "/images/skills/microsoft-entra-id.svg",
+  "Cosmos DB": "/images/skills/azure-cosmos-db.svg",
+  Jenkins: "/images/skills/jenkins.svg",
+};
 
 function MonogramMark({
   monogram,
@@ -77,14 +99,22 @@ function MonogramMark({
 }
 
 export function SkillMark({ skill, ...props }: SkillMarkProps) {
-  if (skill === "React" || skill === "React Native") {
-    return <ReactMark {...props} />;
+  const BrandMark = brandMarks[skill];
+  if (BrandMark) return <BrandMark {...props} />;
+  const imageMark = imageMarks[skill];
+  if (imageMark) {
+    return (
+      <Image
+        src={imageMark}
+        alt=""
+        aria-hidden="true"
+        width={16}
+        height={16}
+        unoptimized
+        className={props.className}
+      />
+    );
   }
-  if (skill === "TypeScript") return <TypeScriptMark {...props} />;
-  if (skill === "Python") return <PythonMark {...props} />;
-  if (databaseSkills.has(skill)) return <DatabaseMark {...props} />;
-  if (azureSkills.has(skill)) return <AzureMark {...props} />;
-  if (identitySkills.has(skill)) return <ShieldMark {...props} />;
 
   const monogram = monograms[skill] ?? {
     text: skill.slice(0, 2),

@@ -40,7 +40,7 @@ export const skills: SkillGroup[] = [
       "MongoDB",
       "MariaDB",
       "Jenkins",
-      "Azure Pipelines",
+      "Azure DevOps",
     ],
   },
 ];

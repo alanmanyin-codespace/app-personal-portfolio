@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
     // that a refreshed screenshot reaches the page within a day.
     minimumCacheTTL: 86400,
   },
+  // The standard file is /llms.txt; catch the common singular misspelling.
+  async redirects() {
+    return [{ source: "/llm.txt", destination: "/llms.txt", permanent: true }];
+  },
 };
 
 export default nextConfig;
